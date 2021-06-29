@@ -2,12 +2,14 @@ import * as React from 'react';
 import styles from './FooterWebpart.module.scss';
 import { IFooterWebpartProps } from './IFooterWebpartProps';
 import { Image, ImageFit, IImageProps } from 'office-ui-fabric-react';
-import * as strings from 'FooterWebpartWebPartStrings';
 import { escape } from '@microsoft/sp-lodash-subset';
+
+import { SelectLanguage } from './SelectLanguage';
 
 
 export default class FooterWebpart extends React.Component<IFooterWebpartProps, {}> {
 
+  public strings = SelectLanguage(this.props.prefLang);
 
   public render(): React.ReactElement<IFooterWebpartProps> {
     console.log(this.props.context.pageContext);
@@ -31,27 +33,27 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps, 
             <div className="ms-Grid">
               <div className="ms-Grid-row">
                 <div className="ms-Grid-col ms-sm12 ms-lg4">
-                  <div className={ styles.footerHeadLabel }>{strings.AboutUsTitle}</div>
+                  <div className={ styles.footerHeadLabel }>{this.strings.AboutUsTitle}</div>
                   <ul className={ styles.footerList }>
-                    <li><a href={`${strings.URLAboutUs}`} target="_blank">{strings.LinkAboutUs}</a></li>
-                    <li><a href={`${strings.URLTerms}`}>{strings.LinkTerms}</a></li>
-                    <li><a href={`${strings.URLPrivacy}`}>{strings.LinkPrivacy}</a></li>
+                    <li><a href={`${this.strings.URLAboutUs}`} target="_blank">{this.strings.LinkAboutUs}</a></li>
+                    <li><a href={`${this.strings.URLTerms}`}>{this.strings.LinkTerms}</a></li>
+                    <li><a href={`${this.strings.URLPrivacy}`}>{this.strings.LinkPrivacy}</a></li>
                   </ul>
                 </div>
                 <div className="ms-Grid-col ms-sm12 ms-lg4">
-                  <div className={ styles.footerHeadLabel }>{strings.SiteLinksTitle}</div>
+                  <div className={ styles.footerHeadLabel }>{this.strings.SiteLinksTitle}</div>
                   <ul className={ styles.footerList }>
-                    <li><a href={`${strings.URLIntranet}`} target="_blank">GCintranet</a></li>
+                    <li><a href={`${this.strings.URLIntranet}`} target="_blank">GCintranet</a></li>
                     <li><a href="https://gcconnex.gc.ca/" target="_blank">GCconnex</a></li>
-                    <li><a href={`${strings.URLCampus}`} target="_blank">GCcampus</a></li>
-                    <li><a href={`${strings.URLPedia}`} target="_blank">GCpedia</a></li>
+                    <li><a href={`${this.strings.URLCampus}`} target="_blank">GCcampus</a></li>
+                    <li><a href={`${this.strings.URLPedia}`} target="_blank">GCpedia</a></li>
                     <li><a href="https://gccollab.ca/" target="_blank">GCcollab</a></li>
                   </ul>
                 </div>
                 <div className="ms-Grid-col ms-sm12 ms-lg4">
-                  <div className={ styles.footerHeadLabel }>{strings.SupportLinksTitle}</div>
+                  <div className={ styles.footerHeadLabel }>{this.strings.SupportLinksTitle}</div>
                   <ul className={ styles.footerList }>
-                    <li><a href={`${strings.URLSupport}`} target="_blank">{strings.LinkSupport}</a></li>
+                    <li><a href={`${this.strings.URLSupport}`} target="_blank">{this.strings.LinkSupport}</a></li>
                   </ul>
                 </div>
               </div>
