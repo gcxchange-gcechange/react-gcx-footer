@@ -3,7 +3,8 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneDropdown,
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
@@ -13,6 +14,7 @@ import { IFooterWebpartProps } from './components/IFooterWebpartProps';
 
 export interface IFooterWebpartWebPartProps {
   description: string;
+  prefLang: string;
 }
 
 export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterWebpartWebPartProps> {
@@ -22,7 +24,8 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
       FooterWebpart,
       {
         description: this.properties.description,
-        context: this.context
+        context: this.context,
+        prefLang: this.properties.prefLang,
       }
     );
 
@@ -50,7 +53,14 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
-                })
+                }),
+                PropertyPaneDropdown('prefLang', {
+                  label: 'Preferred Language',
+                  options: [
+                    { key: 'account', text: 'Account' },
+                    { key: 'en-us', text: 'English' },
+                    { key: 'fr-fr', text: 'Français' }
+                  ]}),
               ]
             }
           ]
