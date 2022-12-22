@@ -12,7 +12,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps, 
   public strings = SelectLanguage(this.props.prefLang);
 
   public render(): React.ReactElement<IFooterWebpartProps> {
-    console.log(this.props.context.pageContext);
+    let aburl= this.props.context.pageContext.web.absoluteUrl;
     const fip1: IImageProps = {
       src: require("../../../../assets/sig-en.svg"),
       imageFit: ImageFit.contain,
@@ -54,6 +54,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps, 
                   <div className={ styles.footerHeadLabel }>{this.strings.SupportLinksTitle}</div>
                   <ul className={ styles.footerList }>
                     <li><a href={`${this.strings.URLSupport}`} target="_blank">{this.strings.LinkSupport}</a></li>
+                    <li><a href={`${aburl+this.strings.URLGCXchangeDirectory}`} target="_blank">{this.strings.LinkGCXchangeDirectory}</a></li>
                   </ul>
                 </div>
               </div>

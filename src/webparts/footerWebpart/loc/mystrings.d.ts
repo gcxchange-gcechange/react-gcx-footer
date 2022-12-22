@@ -16,6 +16,7 @@ declare interface IFooterWebpartWebPartStrings {
   URLIntranet: string;
   URLCampus: string;
   URLPedia: string;
+  LinkGCXchangeDirectory:string;
 }
 
 declare module 'FooterWebpartWebPartStrings' {
