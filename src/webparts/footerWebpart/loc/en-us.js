@@ -16,6 +16,7 @@ define([], function() {
     "URLSupport": "https://gcxgce.sharepoint.com/sites/Support",
     "URLIntranet": "https://intranet.canada.ca/index-eng.asp",
     "URLCampus": "https://www.csps-efpc.gc.ca/GCcampus/index-eng.aspx",
+    "LabelCampus":"Learning platform",
     "URLPedia": "https://www.gcpedia.gc.ca/wiki/Main_Page",
     "URLGCXchangeDirectory": "/SitePages/GCXchangeDirectory.aspx",
     "LinkGCXchangeDirectory":"GCXchange Directory",
