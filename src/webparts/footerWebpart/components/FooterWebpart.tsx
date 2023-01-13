@@ -12,7 +12,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps, 
   public strings = SelectLanguage(this.props.prefLang);
 
   public render(): React.ReactElement<IFooterWebpartProps> {
-    console.log(this.props.context.pageContext);
+    let aburl= this.props.context.pageContext.web.absoluteUrl;
     const fip1: IImageProps = {
       src: require("../../../../assets/sig-en.svg"),
       imageFit: ImageFit.contain,
@@ -45,7 +45,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps, 
                   <ul className={ styles.footerList }>
                     <li><a href={`${this.strings.URLIntranet}`} target="_blank">GCintranet</a></li>
                     <li><a href="https://gcconnex.gc.ca/" target="_blank">GCconnex</a></li>
-                    <li><a href={`${this.strings.URLCampus}`} target="_blank">GCcampus</a></li>
+                    <li><a href={`${this.strings.URLCampus}`} target="_blank">{this.strings.LabelCampus}</a></li>
                     <li><a href={`${this.strings.URLPedia}`} target="_blank">GCpedia</a></li>
                     <li><a href="https://gccollab.ca/" target="_blank">GCcollab</a></li>
                   </ul>
@@ -54,6 +54,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps, 
                   <div className={ styles.footerHeadLabel }>{this.strings.SupportLinksTitle}</div>
                   <ul className={ styles.footerList }>
                     <li><a href={`${this.strings.URLSupport}`} target="_blank">{this.strings.LinkSupport}</a></li>
+                    <li><a href={`${aburl+this.strings.URLGCXchangeDirectory}`} target="_blank">{this.strings.LinkGCXchangeDirectory}</a></li>
                   </ul>
                 </div>
               </div>

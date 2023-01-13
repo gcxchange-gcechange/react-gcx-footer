@@ -5,7 +5,7 @@ define([], function() {
     "DescriptionFieldLabel": "Description Field",
     "AboutUsTitle": "THIS IS US",
     "SiteLinksTitle": "MORE SITE SEEING",
-    "SupportLinksTitle": "NEED A HAND?",
+    "SupportLinksTitle": "REACH OUT?",
     "LinkAboutUs": "About us",
     "LinkTerms": "Terms and conditions of use",
     "LinkPrivacy": "Privacy policy",
@@ -16,6 +16,10 @@ define([], function() {
     "URLSupport": "https://gcxgce.sharepoint.com/sites/Support",
     "URLIntranet": "https://intranet.canada.ca/index-eng.asp",
     "URLCampus": "https://www.csps-efpc.gc.ca/GCcampus/index-eng.aspx",
+    "LabelCampus":"Learning platform",
     "URLPedia": "https://www.gcpedia.gc.ca/wiki/Main_Page",
+    "URLGCXchangeDirectory": "/SitePages/GCXchangeDirectory.aspx",
+    "LinkGCXchangeDirectory":"GCXchange Directory",
+
   }
 });
