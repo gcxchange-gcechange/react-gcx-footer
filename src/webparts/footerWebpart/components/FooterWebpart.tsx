@@ -54,7 +54,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps, 
                   <div className={ styles.footerHeadLabel }>{this.strings.SupportLinksTitle}</div>
                   <ul className={ styles.footerList }>
                     <li><a href={`${this.strings.URLSupport}`} target="_blank">{this.strings.LinkSupport}</a></li>
-                    <li><a href={`${aburl+this.strings.URLGCXchangeDirectory}`} target="_blank">{this.strings.LinkGCXchangeDirectory}</a></li>
+                    <li><a href={`${this.strings.URLGCXchangeDirectory}`} target="_blank">{this.strings.LinkGCXchangeDirectory}</a></li>
                   </ul>
                 </div>
               </div>
