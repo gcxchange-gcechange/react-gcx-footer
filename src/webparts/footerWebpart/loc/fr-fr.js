@@ -18,8 +18,7 @@ define([], function() {
     "URLCampus": "https://www.csps-efpc.gc.ca/gccampus/index-fra.aspx",
     "LabelCampus":"Plateforme d'apprentissage",
     "URLPedia": "https://www.gcpedia.gc.ca/wiki/Main_Page?setlang=fr&uselang=fr",
-    "URLGCXchangeDirectory": "/SitePages/fr/GCXchangeDirectory.aspx",
+    "URLGCXchangeDirectory": "https://gcxgce.sharepoint.com/SitePages/fr/GCXchangeDirectory.aspx",
     "LinkGCXchangeDirectory":"Annuaire GCÉchange",
-
   }
 });
