@@ -14,3 +14,15 @@ build.rig.getTasks = function () {
 };
 
 build.initialize(require('gulp'));
+
+// To fix the followeing errors 
+  //The build failed because a task wrote output to stderr.
+  //Exiting with exit code: 1
+let args = build.getConfig().args;
+let isProductionBundle = args._.indexOf('bundle') !== -1 && (args.ship || args.production || args.p);
+
+if (isProductionBundle) {
+  //build.addSuppression(/Warning - \[sass\] The local CSS class/gi);
+  // OR
+  build.addSuppression(/Warning/gi);
+}
