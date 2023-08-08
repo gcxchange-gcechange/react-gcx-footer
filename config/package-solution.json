@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
     "name": "footer-webpart-client-side-solution",
-    "id": "980046ca-62e3-4af9-9b7c-116c831847f8",
+    "id": "3e218d39-fc89-427a-9a2d-705b44066f80",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
@@ -12,8 +12,27 @@
       "websiteUrl": "",
       "privacyUrl": "",
       "termsOfUseUrl": "",
-      "mpnId": ""
-    }
+      "mpnId": "Undefined-1.17.4"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "footer-webpart description"
+      },
+      "longDescription": {
+        "default": "footer-webpart description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "footer-webpart Feature",
+        "description": "The feature that activates elements of the footer-webpart solution.",
+        "id": "1cedbe41-cfc7-4dba-bf26-62a4c5f1c328",
+        "version": "1.0.0.0"
+      }
+    ]
   },
   "paths": {
     "zippedPackage": "solution/footer-webpart.sppkg"

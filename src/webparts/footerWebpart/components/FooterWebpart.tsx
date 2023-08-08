@@ -2,7 +2,6 @@ import * as React from 'react';
 import styles from './FooterWebpart.module.scss';
 import { IFooterWebpartProps } from './IFooterWebpartProps';
 import { Image, ImageFit, IImageProps } from 'office-ui-fabric-react';
-import { escape } from '@microsoft/sp-lodash-subset';
 
 import { SelectLanguage } from './SelectLanguage';
 
@@ -12,15 +11,15 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps, 
   public strings = SelectLanguage(this.props.prefLang);
 
   public render(): React.ReactElement<IFooterWebpartProps> {
-    let aburl= this.props.context.pageContext.web.absoluteUrl;
+    //const aburl= this.props.context.pageContext.web.absoluteUrl;
     const fip1: IImageProps = {
-      src: require("../../../../assets/sig-en.svg"),
+      src: require("../assets/sig-en.svg"),
       imageFit: ImageFit.contain,
       width: 300,
       height: 150,
     };
     const fip2: IImageProps = {
-      src: require("../../../../assets/wmms.svg"),
+      src: require("../assets/wmms.svg"),
       imageFit: ImageFit.contain,
       width: 180,
       height: 140,

@@ -12,28 +12,25 @@
     "skipLibCheck": true,
     "outDir": "lib",
     "inlineSources": false,
-    "strictNullChecks": false,
+    "noImplicitAny": false,
     "noUnusedLocals": false,
+
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules/@microsoft"
     ],
     "types": [
-      "es6-promise",
-      "webpack-env"
+      "webpack-env","es6-promise"
     ],
     "lib": [
       "es5",
       "dom",
-      "es2015.collection"
+      "es2015.collection",
+      "es2015.promise"
     ]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules",
-    "lib"
   ]
 }
