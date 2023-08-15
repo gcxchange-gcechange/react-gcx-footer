@@ -1,4 +1,5 @@
 declare interface IFooterWebpartWebPartStrings {
+  userLang:string;
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
