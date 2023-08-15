@@ -17,7 +17,7 @@ None
 
 ![SPFx 1.11.0](https://img.shields.io/badge/SPFx-1.11.0-green.svg)
 
-![Node.js v10](https://img.shields.io/badge/Node.js-10.24.1-green.svg)
+![Node.js v10](https://img.shields.io/badge/Node.js-10.22.0-green.svg)
 
 ## Applies to
 
@@ -36,7 +36,7 @@ Version|Date|Comments
 
 - Clone this repository
 - Ensure that you are at the solution folder
-- Ensure the current version of the Node.js (10.24.1)
+- Ensure the current version of the Node.js (10.22.0)
 - In the command-line run:
   - **npm install**
   - **gulp clean**
