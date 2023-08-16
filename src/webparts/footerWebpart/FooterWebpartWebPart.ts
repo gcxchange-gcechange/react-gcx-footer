@@ -20,6 +20,13 @@ export interface IFooterWebpartWebPartProps {
 
 export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterWebpartWebPartProps> {
   private strings:IFooterWebpartWebPartStrings;
+  protected async onInit(): Promise<void> {
+    this.strings=SelectLanguage(this.properties.prefLang);
+  }
+  public updateWebPart= async () => {
+    this.context.propertyPane.refresh();
+    this.render();
+  }
 
   public render(): void {
     const element: React.ReactElement<IFooterWebpartProps> = React.createElement(
@@ -28,14 +35,13 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
         description: this.properties.description,
         context: this.context,
         prefLang: this.properties.prefLang,
+        updateWebPart:this.updateWebPart
       }
     );
     ReactDom.render(element, this.domElement);
   }
 
-  protected async onInit(): Promise<void> {
-    this.strings=SelectLanguage(this.properties.prefLang);
-  }
+  
 
   protected onDispose(): void {
     ReactDom.unmountComponentAtNode(this.domElement);

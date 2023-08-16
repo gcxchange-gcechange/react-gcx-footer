@@ -11,6 +11,13 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps, 
 
   public strings = SelectLanguage(this.props.prefLang);
 
+  public componentDidUpdate = async (prevProps: IFooterWebpartProps) => {
+    if (prevProps.prefLang !== this.props.prefLang) {
+      this.strings = SelectLanguage(this.props.prefLang);
+     await this.props.updateWebPart()
+    }
+  }
+
   public render(): React.ReactElement<IFooterWebpartProps> {
     let aburl= this.props.context.pageContext.web.absoluteUrl;
     const fip1: IImageProps = {
