@@ -13,7 +13,29 @@
       "privacyUrl": "",
       "termsOfUseUrl": "",
       "mpnId": ""
-    }
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "footer-webpart description"
+      },
+      "longDescription": {
+        "default": "footer-webpart description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "footer-webpart FooterWebpartWebPart Feature",
+        "description": "The feature that activates FooterWebpartWebPart from the footer-webpart solution.",
+        "id": "485fc211-39b2-43a6-a5a7-f705a462bdb4",
+        "version": "1.0.0.0",
+        "componentIds": [
+          "485fc211-39b2-43a6-a5a7-f705a462bdb4"
+        ]
+      }
+    ]
   },
   "paths": {
     "zippedPackage": "solution/footer-webpart.sppkg"
