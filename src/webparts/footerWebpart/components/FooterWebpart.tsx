@@ -39,9 +39,7 @@ export default class FooterWebpart extends React.Component<
         <div className={styles.container}>
           <div className={styles.row}>
             <div className="ms-Grid">
-              <div className="ms-Grid-row">
-                <ul className={styles.footerList}>
-                  <li>
+              <div className="ms-Grid-row">              
                     <div className="ms-Grid-col ms-sm12 ms-lg4">
                       <h2 className={styles.footerHeadLabel}>
                         {this.strings.AboutUsTitle}
@@ -66,9 +64,7 @@ export default class FooterWebpart extends React.Component<
                           </a>
                         </li>
                       </ul>
-                    </div>
-                  </li>
-                  <li>
+                    </div>                
                     <div className="ms-Grid-col ms-sm12 ms-lg4">
                       <h2 className={styles.footerHeadLabel}>
                         {this.strings.SiteLinksTitle}
@@ -103,9 +99,8 @@ export default class FooterWebpart extends React.Component<
                           </a>
                         </li>
                       </ul>
-                    </div>
-                  </li>
-                  <li>
+                    </div>           
+                  
                     <div className="ms-Grid-col ms-sm12 ms-lg4">
                       <h2 className={styles.footerHeadLabel}>
                         {this.strings.SupportLinksTitle}
@@ -128,9 +123,7 @@ export default class FooterWebpart extends React.Component<
                           </a>
                         </li>
                       </ul>
-                    </div>
-                  </li>
-                </ul>
+                    </div>             
               </div>
               {/* <div className="ms-Grid-row">
                 <div className="ms-Grid-col ms-sm12 ms-lg4">
