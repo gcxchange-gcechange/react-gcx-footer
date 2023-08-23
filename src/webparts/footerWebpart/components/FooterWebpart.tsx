@@ -208,10 +208,10 @@ export default class FooterWebpart extends React.Component<
               </div> */}
               <div className="ms-Grid-row">
                 <div className="ms-Grid-col ms-lg6">
-                  <Image {...fip1} alt="Government of Canada" />
+                  <Image {...fip1} alt={this.strings.GovImage }/>
                 </div>
                 <div className="ms-Grid-col ms-lg6">
-                  <Image {...fip2} alt="Canada" className={styles.fipImg} />
+                  <Image {...fip2} alt={this.strings.CanadaImage} className={styles.fipImg} />
                 </div>
               </div>
             </div>
