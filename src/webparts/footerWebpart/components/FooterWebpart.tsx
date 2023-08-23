@@ -35,13 +35,14 @@ export default class FooterWebpart extends React.Component<
     };
 
     return (
-      <footer className={styles.footerWebpart}>
+      <footer className={styles.footerWebpart} role="contentinfo">
         <div className={styles.container}>
           <div className={styles.row}>
             <div className="ms-Grid">
               <div className="ms-Grid-row">              
                     <div className="ms-Grid-col ms-sm12 ms-lg4">
-                      <h2 className={styles.footerHeadLabel}>
+                      <section aria-labelledby="this-is-us-heading">
+                      <h2 className={styles.footerHeadLabel} id="this-is-us-heading">
                         {this.strings.AboutUsTitle}
                       </h2>
                       <ul className={styles.footerList}>
@@ -64,9 +65,11 @@ export default class FooterWebpart extends React.Component<
                           </a>
                         </li>
                       </ul>
+                      </section>
                     </div>                
                     <div className="ms-Grid-col ms-sm12 ms-lg4">
-                      <h2 className={styles.footerHeadLabel}>
+                    <section aria-labelledby="more-site-seeing-heading">
+                      <h2 className={styles.footerHeadLabel} id="more-site-seeing-heading">
                         {this.strings.SiteLinksTitle}
                       </h2>
                       <ul className={styles.footerList}>
@@ -99,10 +102,11 @@ export default class FooterWebpart extends React.Component<
                           </a>
                         </li>
                       </ul>
-                    </div>           
-                  
+                     </section>
+                    </div>                
                     <div className="ms-Grid-col ms-sm12 ms-lg4">
-                      <h2 className={styles.footerHeadLabel}>
+                    <section aria-labelledby="reach-out-heading">
+                      <h2 className={styles.footerHeadLabel} id="reach-out-heading">
                         {this.strings.SupportLinksTitle}
                       </h2>
                       <ul className={styles.footerList}>
@@ -123,6 +127,7 @@ export default class FooterWebpart extends React.Component<
                           </a>
                         </li>
                       </ul>
+                    </section>
                     </div>             
               </div>
               {/* <div className="ms-Grid-row">
@@ -203,10 +208,10 @@ export default class FooterWebpart extends React.Component<
               </div> */}
               <div className="ms-Grid-row">
                 <div className="ms-Grid-col ms-lg6">
-                  <Image {...fip1} alt="" />
+                  <Image {...fip1} alt="Government of Canada" />
                 </div>
                 <div className="ms-Grid-col ms-lg6">
-                  <Image {...fip2} alt="" className={styles.fipImg} />
+                  <Image {...fip2} alt="Canada" className={styles.fipImg} />
                 </div>
               </div>
             </div>
