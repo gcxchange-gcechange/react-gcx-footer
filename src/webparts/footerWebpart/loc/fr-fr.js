@@ -20,6 +20,8 @@ define([], function() {
     "LabelCampus":"Plateforme d'apprentissage",
     "URLPedia": "https://www.gcpedia.gc.ca/wiki/Main_Page?setlang=fr&uselang=fr",
     "URLGCXchangeDirectory": "https://gcxgce.sharepoint.com/SitePages/fr/GCXchangeDirectory.aspx",
-    "LinkGCXchangeDirectory":"Annuaire GCÉchange",
+    "LinkGCXchangeDirectory":"Annuaire GCÉchange",    
+    "GovImage":"Gouvernement du Canada",
+    "CanadaImage":"Symbole du gouvernement du Canada",
   }
 });
