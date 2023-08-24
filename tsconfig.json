@@ -13,7 +13,8 @@
     "outDir": "lib",
     "inlineSources": false,
     "strictNullChecks": false,
-    "noUnusedLocals": false,
+    "noImplicitAny": true,
+
     "typeRoots": [
       "./node_modules/@types",
       "./node_modules/@microsoft"
@@ -31,6 +32,6 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx"
-  ],
+  ]
 
 }

@@ -12,8 +12,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
   public strings = SelectLanguage(this.props.prefLang);
 
   public render(): React.ReactElement<IFooterWebpartProps> {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const aburl= this.props.context.pageContext.web.absoluteUrl;
+    // const aburl= this.props.context.pageContext.web.absoluteUrl;
     const fip1: IImageProps = {
       src: require("../../../../assets/sig-en.svg"),
       imageFit: ImageFit.contain,

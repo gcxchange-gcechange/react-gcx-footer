@@ -1,8 +1,13 @@
 {
   "@microsoft/generator-sharepoint": {
     "isCreatingSolution": true,
+    "nodeVersion": "16.14.0",
     "environment": "spo",
-    "version": "1.15.2",
+    "version": "1.17.4",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.9.1"
+    },
     "libraryName": "footer-webpart",
     "libraryId": "980046ca-62e3-4af9-9b7c-116c831847f8",
     "packageManager": "npm",
