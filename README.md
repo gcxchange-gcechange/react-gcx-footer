@@ -2,7 +2,7 @@
 
 ## Summary
 
-React web part to add full gcxchange-gcéchange footer to pages. This footer is contained in a footer landmark to comply with accessibility standards.
+React footer for GCX sharepoint. This footer contain hardcoded link for the government of canada, including the government of canada wordmark.
 
 ![gcxchange-gcéchange footer](./assets/gcx-footer.PNG)
 
