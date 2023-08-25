@@ -1,7 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 import * as strings from 'FooterWebpartWebPartStrings';
-// import * as english from '../loc/en-us.js';
-// import * as french from '../loc/fr-fr.js';
 
 const english = require("../loc/en-us.js")
 const french = require("../loc/fr-fr.js")
