@@ -6,9 +6,10 @@ React web part to add full gcxchange-gcéchange footer to pages. This footer is 
 
 ![gcxchange-gcéchange footer](./assets/gcx-footer.PNG)
 
-## Used SharePoint Framework Version
+## Compatibility
 
-![version](https://img.shields.io/badge/version-1.11-green.svg)
+![SPFX](https://img.shields.io/badge/SPFX-1.17.4-green.svg)
+![Node.js](https://img.shields.io/badge/Node.js-v16.3+-green.svg)
 
 ## Applies to
 
@@ -22,6 +23,13 @@ React web part to add full gcxchange-gcéchange footer to pages. This footer is 
 Solution|Author(s)
 --------|---------
 footer-webpart | piet0024
+
+## Version history
+
+Version|Date|Comments
+--------|---------|---------
+1.0.0  | Jan 29, 2021 | Initial release
+1.0.1  | Aug 25, 2023 | Upgraded to SPFX 1.17.4
 
 ## Disclaimer
 
