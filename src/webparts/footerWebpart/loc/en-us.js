@@ -1,5 +1,6 @@
 define([], function() {
   return {
+    "userLang": "en-us",
     "PropertyPaneDescription": "Description",
     "BasicGroupName": "Group Name",
     "DescriptionFieldLabel": "Description Field",
@@ -20,6 +21,7 @@ define([], function() {
     "URLPedia": "https://www.gcpedia.gc.ca/wiki/Main_Page",
     "URLGCXchangeDirectory": "https://gcxgce.sharepoint.com/SitePages/GCXchangeDirectory.aspx",
     "LinkGCXchangeDirectory":"GCXchange Directory",
-
+    "GovImage":"Government of Canada",
+    "CanadaImage":"Symbol of the Government of Canada",  
   }
 });

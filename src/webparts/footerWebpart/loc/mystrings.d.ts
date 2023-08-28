@@ -1,4 +1,5 @@
 declare interface IFooterWebpartWebPartStrings {
+  userLang:string;
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
@@ -18,6 +19,8 @@ declare interface IFooterWebpartWebPartStrings {
   LabelCampus:string;
   URLPedia: string;
   LinkGCXchangeDirectory:string;
+  GovImage:string;
+  CanadaImage:string;
 }
 
 declare module 'FooterWebpartWebPartStrings' {
