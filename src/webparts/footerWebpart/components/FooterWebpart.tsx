@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import * as React from 'react';
 import styles from './FooterWebpart.module.scss';
 import { IFooterWebpartProps } from './IFooterWebpartProps';
@@ -10,6 +11,13 @@ import { SelectLanguage } from './SelectLanguage';
 export default class FooterWebpart extends React.Component<IFooterWebpartProps > {
 
   public strings = SelectLanguage(this.props.prefLang);
+
+  public componentDidUpdate = async (prevProps: IFooterWebpartProps) => {
+    if (prevProps.prefLang !== this.props.prefLang) {
+      this.strings = SelectLanguage(this.props.prefLang);
+      await this.props.updateWebPart();
+    }
+  };
 
   public render(): React.ReactElement<IFooterWebpartProps> {
     // const aburl= this.props.context.pageContext.web.absoluteUrl;
@@ -27,9 +35,9 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
     };
 
     return (
-      <footer className={ styles.footerWebpart }>
-        <div className={ styles.container }>
-          <div className={ styles.row }>
+      <footer className={styles.footerWebpart} role="contentinfo">
+        <div className={styles.container}>
+          <div className={styles.row}>
             <div className="ms-Grid">
               <div className="ms-Grid-row">
                 <div className="ms-Grid-col ms-sm12 ms-lg4">
@@ -60,17 +68,10 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
               </div>
               <div className="ms-Grid-row">
                 <div className="ms-Grid-col ms-lg6">
-                  <Image
-                    {...fip1}
-                    alt=""
-                  />
+                  <Image {...fip1} alt={this.strings.GovImage }/>
                 </div>
                 <div className="ms-Grid-col ms-lg6">
-                  <Image
-                    {...fip2}
-                    alt=""
-                    className={styles.fipImg}
-                  />
+                  <Image {...fip2} alt={this.strings.CanadaImage} className={styles.fipImg} />
                 </div>
               </div>
             </div>
