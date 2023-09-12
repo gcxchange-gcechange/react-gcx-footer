@@ -37,7 +37,7 @@ Version|Date|Comments
 
 - Clone this repository
 - Ensure that you are at the solution folder
-- Ensure the current version of the Node.js (10.22.0)
+- Ensure the current version of the Node.js (16.3+)
 - In the command-line run:
   - **npm install**
   - **gulp clean**
