@@ -4,5 +4,5 @@ export interface IFooterWebpartProps {
   description: string;
   context: WebPartContext;
   prefLang: string;
-  updateWebPart: Function;
+  updateWebPart: () => void;
 }
