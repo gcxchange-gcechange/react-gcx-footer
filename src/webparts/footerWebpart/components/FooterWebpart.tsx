@@ -64,7 +64,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
                 </div>
                 <div className="ms-Grid-col ms-sm12 ms-lg4">
                  <section aria-labelledby="reach-out-heading">
-                    <div className={ styles.footerHeadLabel } id="reach-out-heading">{this.strings.SupportLinksTitle}</div>
+                    <h2 className={ styles.footerHeadLabel } id="reach-out-heading">{this.strings.SupportLinksTitle}</h2>
                     <ul className={ styles.footerList }>
                       <li><a href={`${this.strings.URLSupport}`} target="_blank" rel="noreferrer">{this.strings.LinkSupport}</a></li>
                       <li><a href={`${this.strings.URLGCXchangeDirectory}`}  target="_blank" rel="noreferrer">{this.strings.LinkGCXchangeDirectory}</a></li>
