@@ -42,7 +42,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
               <div className="ms-Grid-row">
                 <div className="ms-Grid-col ms-sm12 ms-lg4">
                   <section aria-labelledby="this-is-us-heading">
-                    <h2 className={ styles.footerHeadLabel } id="this-is-us-heading">{this.strings.AboutUsTitle}</h2>
+                    <h3 className={ styles.footerHeadLabel } id="this-is-us-heading">{this.strings.AboutUsTitle}</h3>
                     <ul className={ styles.footerList }>
                       <li><a href={`${this.strings.URLAboutUs}`} target="_blank" rel="noreferrer">{this.strings.LinkAboutUs}</a></li>
                       <li><a href={`${this.strings.URLTerms}`}>{this.strings.LinkTerms}</a></li>
@@ -52,7 +52,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
                 </div>
                 <div className="ms-Grid-col ms-sm12 ms-lg4">
                 <section aria-labelledby="more-site-seeing-heading">
-                  <h2 className={ styles.footerHeadLabel } id="more-site-seeing-heading">{this.strings.SiteLinksTitle}</h2>
+                  <h3 className={ styles.footerHeadLabel } id="more-site-seeing-heading">{this.strings.SiteLinksTitle}</h3>
                   <ul className={ styles.footerList }>
                     <li><a href={`${this.strings.URLIntranet}`} target="_blank" rel="noreferrer">GCintranet</a></li>
                     <li><a href="https://gcconnex.gc.ca/" target="_blank" rel="noreferrer">GCconnex</a></li>
@@ -64,7 +64,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
                 </div>
                 <div className="ms-Grid-col ms-sm12 ms-lg4">
                  <section aria-labelledby="reach-out-heading">
-                    <h2 className={ styles.footerHeadLabel } id="reach-out-heading">{this.strings.SupportLinksTitle}</h2>
+                    <h3 className={ styles.footerHeadLabel } id="reach-out-heading">{this.strings.SupportLinksTitle}</h3>
                     <ul className={ styles.footerList }>
                       <li><a href={`${this.strings.URLSupport}`} target="_blank" rel="noreferrer">{this.strings.LinkSupport}</a></li>
                       <li><a href={`${this.strings.URLGCXchangeDirectory}`}  target="_blank" rel="noreferrer">{this.strings.LinkGCXchangeDirectory}</a></li>
