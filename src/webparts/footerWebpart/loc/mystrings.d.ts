@@ -6,6 +6,7 @@ declare interface IFooterWebpartWebPartStrings {
   AboutUsTitle: string;
   SiteLinksTitle: string;
   SupportLinksTitle: string;
+  WantToStayInTheLoopLinksTitle: string;
   LinkAboutUs: string;
   LinkTerms: string;
   LinkPrivacy: string;

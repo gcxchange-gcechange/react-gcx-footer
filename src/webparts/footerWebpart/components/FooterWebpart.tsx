@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import * as React from 'react';
-import styles from './FooterWebpart.module.scss';
+import styles from './FooterWebpart.module.scss'
 import { IFooterWebpartProps } from './IFooterWebpartProps';
 import { Image, ImageFit, IImageProps } from 'office-ui-fabric-react';
 
@@ -68,6 +68,14 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
                     <ul className={ styles.footerList }>
                       <li><a href={`${this.strings.URLSupport}`} target="_blank" rel="noreferrer">{this.strings.LinkSupport}</a></li>
                       <li><a href={`${this.strings.URLGCXchangeDirectory}`}  target="_blank" rel="noreferrer">{this.strings.LinkGCXchangeDirectory}</a></li>
+                    </ul>
+                  </section>
+                </div>
+                <div className="ms-Grid-col ms-sm12 ms-lg4">
+                 <section aria-labelledby="want-to-stay-in-the-loop">
+                    <h3 className={ styles.footerHeadLabel } id="want-to-stay-in-the-loop">{this.strings.WantToStayInTheLoopLinksTitle}</h3>
+                    <ul className={ styles.footerList }>
+                      
                     </ul>
                   </section>
                 </div>
