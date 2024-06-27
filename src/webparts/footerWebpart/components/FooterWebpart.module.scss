@@ -94,4 +94,18 @@
       display: inline-block;
     }
   }
+
+  .newsletterButton {
+  background-color: #b0c979;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+  .newsletterButton:hover {
+    opacity: 0.8;
+  }
+
 }

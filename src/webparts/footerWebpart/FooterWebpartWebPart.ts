@@ -17,6 +17,9 @@ import { SelectLanguage } from './components/SelectLanguage';
 export interface IFooterWebpartWebPartProps {
   description: string;
   prefLang: string;
+  buttonText: string;
+  buttonTitle: string;
+  buttonLink: string;
 }
 
 export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterWebpartWebPartProps> {
@@ -36,6 +39,9 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
         description: this.properties.description,
         context: this.context,
         prefLang: this.properties.prefLang,
+        buttonText: this.properties.buttonText,
+        buttonTitle: this.properties.buttonTitle,
+        buttonLink: this.properties.buttonLink,
         updateWebPart:this.updateWebPart
       }
     );
@@ -74,6 +80,15 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
                     { key: 'fr-fr', text: 'Français' }
                   ],
                   selectedKey: this.strings.userLang,
+                }),
+                PropertyPaneTextField('buttonText', {
+                  label: 'Text for Button',
+                }),
+                PropertyPaneTextField('buttonTitle', {
+                  label: 'Title for Button',
+                }),
+                PropertyPaneTextField('buttonLink', {
+                  label: 'URL for Button',
                 }),
               ]
             }
