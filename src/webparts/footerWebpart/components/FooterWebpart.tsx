@@ -39,6 +39,8 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
       height: 140,
     };
 
+    const isButtonPropertiesAvailable = buttonText && buttonTitle && buttonLink;
+
     return (
       <footer className={styles.footerWebpart} role="contentinfo">
         <div className={styles.container}>
@@ -76,18 +78,20 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
                     </ul>
                   </section>
                 </div>
-                <div className="ms-Grid-col ms-sm12 ms-lg3">
-                 <section aria-labelledby="want-to-stay-in-the-loop">
-                    <h3 className={ styles.footerHeadLabel } id="want-to-stay-in-the-loop">{this.strings.WantToStayInTheLoopLinksTitle}</h3>
-                    <ul className={ styles.button }>
-                        {buttonText && buttonTitle && buttonLink && (
-                          <a href={`${buttonLink}`} target="_blank" rel="noreferrer" className={styles.newsletterButton}>
-                        {buttonText}
-                      </a>
-                      )}
-                    </ul>
-                  </section>
-                </div>
+                {isButtonPropertiesAvailable && ( 
+                  <div className="ms-Grid-col ms-sm12 ms-lg3">
+                  <section aria-labelledby="want-to-stay-in-the-loop">
+                      <h3 className={ styles.footerHeadLabel } id="want-to-stay-in-the-loop">{this.strings.WantToStayInTheLoopLinksTitle}</h3>
+                      <ul className={ styles.button }>
+                          {buttonText && buttonTitle && buttonLink && (
+                            <a href={`${buttonLink}`} target="_blank" rel="noreferrer" className={styles.newsletterButton}>
+                          {buttonText}
+                        </a>
+                        )}
+                      </ul>
+                    </section>
+                  </div>
+                )}
               </div>
               <div className="ms-Grid-row">
                 <div className="ms-Grid-col ms-lg6">
