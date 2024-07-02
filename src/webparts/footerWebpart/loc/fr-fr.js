@@ -7,7 +7,6 @@ define([], function() {
     "AboutUsTitle": "NOTRE ÉQUIPE",
     "SiteLinksTitle": "VOIR LE RESTE DU SITE",
     "SupportLinksTitle": "COMMUNIQUEZ AVEC VOS COLLÈGUES",
-    "WantToStayInTheLoopLinksTitle": "VOUS VOULEZ RESTER AU COURANT?",
     "LinkAboutUs": "À propos de nous",
     "LinkTerms": "Conditions d'utilisation",
     "LinkPrivacy": "Politique de confidentialité",

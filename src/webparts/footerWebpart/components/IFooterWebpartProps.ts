@@ -4,6 +4,7 @@ export interface IFooterWebpartProps {
   description: string;
   context: WebPartContext;
   prefLang: string;
+  wantToStayInTheLoopTitle: string,
   buttonText: string;
   buttonTitle: string; 
   buttonLink: string;

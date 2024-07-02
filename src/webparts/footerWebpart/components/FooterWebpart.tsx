@@ -22,6 +22,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
   public render(): React.ReactElement<IFooterWebpartProps> {
     // const aburl= this.props.context.pageContext.web.absoluteUrl;
     const {
+      wantToStayInTheLoopTitle,
       buttonText,
       buttonTitle,
       buttonLink
@@ -81,7 +82,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
                 {isButtonPropertiesAvailable && ( 
                   <div className="ms-Grid-col ms-sm12 ms-lg3">
                   <section aria-labelledby="want-to-stay-in-the-loop">
-                      <h3 className={ styles.footerHeadLabel } id="want-to-stay-in-the-loop">{this.strings.WantToStayInTheLoopLinksTitle}</h3>
+                      <h3 className={ styles.footerHeadLabel } id="want-to-stay-in-the-loop">{wantToStayInTheLoopTitle}</h3>
                       <ul className={ styles.button }>
                           {buttonText && buttonTitle && buttonLink && (
                             <a href={`${buttonLink}`} target="_blank" rel="noreferrer" className={styles.newsletterButton}>
