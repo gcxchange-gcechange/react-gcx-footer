@@ -24,7 +24,6 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
     const {
       wantToStayInTheLoopTitle,
       buttonText,
-      buttonTitle,
       buttonLink
     } = this.props;
     const fip1: IImageProps = {
@@ -40,7 +39,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
       height: 140,
     };
 
-    const isButtonPropertiesAvailable = buttonText && buttonTitle && buttonLink;
+    const isButtonPropertiesAvailable = buttonText && buttonLink;
 
     return (
       <footer className={styles.footerWebpart} role="contentinfo">
@@ -84,7 +83,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
                   <section aria-labelledby="want-to-stay-in-the-loop">
                       <h3 className={ styles.footerHeadLabel } id="want-to-stay-in-the-loop">{wantToStayInTheLoopTitle}</h3>
                       <ul className={ styles.button }>
-                          {buttonText && buttonTitle && buttonLink && (
+                          {buttonText && buttonLink && (
                             <a href={`${buttonLink}`} target="_blank" rel="noreferrer" className={styles.newsletterButton}>
                           {buttonText}
                         </a>

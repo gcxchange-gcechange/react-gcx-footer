@@ -19,7 +19,6 @@ export interface IFooterWebpartWebPartProps {
   prefLang: string;
   wantToStayInTheLoopTitle: string;
   buttonText: string;
-  buttonTitle: string;
   buttonLink: string;
 }
 
@@ -42,7 +41,6 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
         prefLang: this.properties.prefLang,
         wantToStayInTheLoopTitle: this.properties.wantToStayInTheLoopTitle,
         buttonText: this.properties.buttonText,
-        buttonTitle: this.properties.buttonTitle,
         buttonLink: this.properties.buttonLink,
         updateWebPart:this.updateWebPart
       }
@@ -88,9 +86,6 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
                 }),
                 PropertyPaneTextField('buttonText', {
                   label: 'Text for Button',
-                }),
-                PropertyPaneTextField('buttonTitle', {
-                  label: 'Title for Button',
                 }),
                 PropertyPaneTextField('buttonLink', {
                   label: 'URL for Button',

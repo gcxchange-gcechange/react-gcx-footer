@@ -6,7 +6,6 @@ export interface IFooterWebpartProps {
   prefLang: string;
   wantToStayInTheLoopTitle: string,
   buttonText: string;
-  buttonTitle: string; 
   buttonLink: string;
   updateWebPart: () => void;
 }
