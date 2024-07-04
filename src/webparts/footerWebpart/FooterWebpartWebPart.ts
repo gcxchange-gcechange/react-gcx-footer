@@ -17,6 +17,9 @@ import { SelectLanguage } from './components/SelectLanguage';
 export interface IFooterWebpartWebPartProps {
   description: string;
   prefLang: string;
+  wantToStayInTheLoopTitle: string;
+  buttonText: string;
+  buttonLink: string;
 }
 
 export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterWebpartWebPartProps> {
@@ -36,6 +39,9 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
         description: this.properties.description,
         context: this.context,
         prefLang: this.properties.prefLang,
+        wantToStayInTheLoopTitle: this.properties.wantToStayInTheLoopTitle,
+        buttonText: this.properties.buttonText,
+        buttonLink: this.properties.buttonLink,
         updateWebPart:this.updateWebPart
       }
     );
@@ -74,6 +80,15 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
                     { key: 'fr-fr', text: 'Français' }
                   ],
                   selectedKey: this.strings.userLang,
+                }),
+                PropertyPaneTextField('wantToStayInTheLoopTitle', { 
+                  label: 'Text for Staying In The Loop'
+                }),
+                PropertyPaneTextField('buttonText', {
+                  label: 'Text for Button',
+                }),
+                PropertyPaneTextField('buttonLink', {
+                  label: 'URL for Button',
                 }),
               ]
             }

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import * as React from 'react';
-import styles from './FooterWebpart.module.scss';
+import styles from './FooterWebpart.module.scss'
 import { IFooterWebpartProps } from './IFooterWebpartProps';
 import { Image, ImageFit, IImageProps } from 'office-ui-fabric-react';
 
@@ -21,6 +21,11 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
 
   public render(): React.ReactElement<IFooterWebpartProps> {
     // const aburl= this.props.context.pageContext.web.absoluteUrl;
+    const {
+      wantToStayInTheLoopTitle,
+      buttonText,
+      buttonLink
+    } = this.props;
     const fip1: IImageProps = {
       src: require("../../../../assets/sig-en.svg"),
       imageFit: ImageFit.contain,
@@ -34,13 +39,15 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
       height: 140,
     };
 
+    const isButtonPropertiesAvailable = buttonText && buttonLink;
+
     return (
       <footer className={styles.footerWebpart} role="contentinfo">
         <div className={styles.container}>
           <div className={styles.row}>
             <div className="ms-Grid">
               <div className="ms-Grid-row">
-                <div className="ms-Grid-col ms-sm12 ms-lg4">
+                <div className="ms-Grid-col ms-sm12 ms-lg3">
                   <section aria-labelledby="this-is-us-heading">
                     <h3 className={ styles.footerHeadLabel } id="this-is-us-heading">{this.strings.AboutUsTitle}</h3>
                     <ul className={ styles.footerList }>
@@ -50,7 +57,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
                     </ul>
                   </section>
                 </div>
-                <div className="ms-Grid-col ms-sm12 ms-lg4">
+                <div className="ms-Grid-col ms-sm12 ms-lg3">
                 <section aria-labelledby="more-site-seeing-heading">
                   <h3 className={ styles.footerHeadLabel } id="more-site-seeing-heading">{this.strings.SiteLinksTitle}</h3>
                   <ul className={ styles.footerList }>
@@ -62,7 +69,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
                   </ul>
                   </section>
                 </div>
-                <div className="ms-Grid-col ms-sm12 ms-lg4">
+                <div className="ms-Grid-col ms-sm12 ms-lg3">
                  <section aria-labelledby="reach-out-heading">
                     <h3 className={ styles.footerHeadLabel } id="reach-out-heading">{this.strings.SupportLinksTitle}</h3>
                     <ul className={ styles.footerList }>
@@ -71,10 +78,24 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
                     </ul>
                   </section>
                 </div>
+                {isButtonPropertiesAvailable && ( 
+                  <div className="ms-Grid-col ms-sm12 ms-lg3">
+                  <section aria-labelledby="want-to-stay-in-the-loop">
+                      <h3 className={ styles.footerHeadLabel } id="want-to-stay-in-the-loop">{wantToStayInTheLoopTitle}</h3>
+                      <ul className={ styles.button }>
+                          {buttonText && buttonLink && (
+                            <a href={`${buttonLink}`} target="_blank" rel="noreferrer" className={styles.newsletterButton}>
+                          {buttonText}
+                        </a>
+                        )}
+                      </ul>
+                    </section>
+                  </div>
+                )}
               </div>
               <div className="ms-Grid-row">
                 <div className="ms-Grid-col ms-lg6">
-                  <Image {...fip1} alt={this.strings.GovImage }/>
+                  <Image {...fip1} alt={this.strings.GovImage}/>
                 </div>
                 <div className="ms-Grid-col ms-lg6">
                   <Image {...fip2} alt={this.strings.CanadaImage} className={styles.fipImg} />
