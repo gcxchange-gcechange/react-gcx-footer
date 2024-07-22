@@ -1,0 +1,59 @@
+trigger:
+  - azure-pipelines
+
+variables:
+  - group: office365credentials
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: Build
+    jobs:
+      - job: build_packages
+        displayName: SPFx production build and package
+        steps:
+          - script: npm install
+            displayName: Install NPM dependencies
+          ################################################################
+          ## installs: the required dependencies 
+          ################################################################
+          - task: gulp@0
+            displayName: SPFx build
+            inputs:
+              targets: build
+          ################################################################
+          ## executes: gulp build
+          ################################################################
+          - task: gulp@0
+            displayName: SPFx bundle
+            inputs:
+              targets: bundle
+              arguments: --ship
+          ################################################################
+          ## executes: gulp bundle --ship 
+          ################################################################
+          - task: gulp@0
+            displayName: SPFx package solution
+            inputs:
+              targets: package-solution
+              arguments: --ship
+          ################################################################
+          ## executes: gulp package-solution --ship 
+          ################################################################
+          - script: |
+              CMD_GET_SPPKG_NAME=$(find . -name '*.sppkg' -exec basename {} \;)
+              echo "##vso[task.setvariable variable=SpPkgFileName;isOutput=true]${CMD_GET_SPPKG_NAME}"
+            displayName: Get generated *.sppkg filename
+            name: GetSharePointPackage
+          ################################################################
+          ## evaluates: the name of the generated *.sppkg package file 
+          ################################################################
+          - task: PublishPipelineArtifact@1
+            displayName: Publish SharePoint package (*.sppkg)
+            inputs:
+              targetPath: '$(Build.Repository.LocalPath)/sharepoint/solution/$(GetSharePointPackage.SpPkgFileName)'
+              artifact: spfx-package
+          ################################################################
+          ## publishes: the generated *.sppkg as a build artifact
+          ################################################################
