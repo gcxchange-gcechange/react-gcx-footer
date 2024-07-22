@@ -1,21 +1,24 @@
-trigger:
-  branches:
-    include:
-    - '*'
-
 pool:
-  vmImage: ubuntu-latest
-
+  vmImage: 'ubuntu-16.04'
+trigger:
+  - azure-pipelines
 steps:
-- script: |
-    echo Sync azure repo
-    B64_PAT=$(echo -n ":$PAT" | base64)
-    git -c http.extraHeader="Authorization: Basic ${B64_PAT}" clone --bare https://dev.azure.com/tbs-sct/GCExchange/_git/$REPO_NAME Sync_directory
-    cd Sync_directory
-    git remote add --mirror=fetch upstream https://github.com/gcxchange-gcechange/$REPO_NAME
-    git fetch upstream --tags
-    git -c http.extraHeader="Authorization: Basic ${B64_PAT}" push origin --all
-  env:
-    PAT: $(PAT)
-    REPO_NAME: "/react-gcx-footer"
-  displayName: 'Sync repo'
+  - task: CopyFiles@2
+    displayName: 'Copy Files to: $(build.artifactstagingdirectory)/Templates'
+    inputs:
+      SourceFolder: deployment
+      Contents: '*.json'
+      TargetFolder: '$(build.artifactstagingdirectory)/Templates'
+  - task: Npm@1
+    displayName: 'npm custom'
+    inputs:
+      command: custom
+      verbose: false
+      customCommand: 'install --production'
+  - task: ArchiveFiles@2
+    displayName: 'Archive $(Build.SourcesDirectory)'
+    inputs:
+      rootFolderOrFile: '$(Build.SourcesDirectory)'
+      includeRootFolder: false
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
