@@ -1,0 +1,59 @@
+trigger:
+  branches: 
+    include: 
+    - '*'
+
+#variables:
+#  - group: office365credentials 
+
+stages:
+- stage: Build
+  dependsOn: []
+  jobs:
+############################################################
+## installs: npm dependencies 
+############################################################
+    - job: build_package 
+      displayName: SPFx build and packaging
+      steps:
+        - script: npm install
+          displayName: Install npm dependencies 
+############################################################
+## executes: gulp build
+############################################################
+        - task: gulp@0
+          displayName: SPFx build
+          inputs:
+            targets: build
+############################################################
+## executes: gulp bundle --ship 
+############################################################
+        - task: gulp@0
+          displayName: SPFx bundle 
+          inputs:
+            targets: bundle
+            arguments: --ship
+############################################################
+## executes: gulp package-solution --ship
+############################################################
+        - task: gulp@0
+          displayName: SPFx package solution 
+          inputs:
+            targets: package-solution 
+            arguments: --ship
+############################################################
+## evaluates: the name of the generated *.sppkg package
+############################################################
+        - script: |
+            CMD_GET_SPPKG_NAME=$(find . -name '*.sppkg' -exec basename {} \;)
+            echo "##vso[task.setvariable variable=SpPkgFilename;isOutput=true]${CMD_GET_SPPKG_NAME}"
+          displayName: Get generated *.sppkg filename 
+          name: GetSharePointPackage
+############################################################
+## publishes: *.sppkg as a build artifact 
+############################################################
+        - task: PublishBuildArtifacts@1
+          displayName: Publish SharePoint Package (*.sppkg)
+          inputs:
+            targetPath: $(Build.Repository.LocalPath)/sharepoint/solution/$(GetSharePointPackage.SpPkgFilename)
+            ArtifactName: spfx-package
