@@ -99,3 +99,52 @@ stages:
             testResultsFormat: JUnit
             testResultsFiles: '**/junit.xml'
             failTaskOnFailedTests: true
+
+#- stage: Deploy_Development 
+#  dependsOn:
+#  - Build
+# - Test 
+#  jobs:
+#    - deployment: deploy_dev_sppkg
+#      displayName: Deploy to Dev Environment 
+#      environment: Development 
+#      strategy: 
+#        runOnce:
+#          deploy:
+#            steps:
+############################################################
+## installs: Office M365 CLI
+############################################################
+#            - script: sudo npm install --global @pnp/office365-cli
+#              displayName: Install OfficeM365 CLI
+############################################################
+## logs in: Office M365 CLI
+############################################################
+#            - script: o365 login https://devgcx.sharepoint.com/ --authType password --userName $(AdminUserLogin) --password $(AdminUserPassword)
+#              displayName: Login to OfficeM365
+############################################################
+## downloads: the previously built artifact package *.sppkg
+############################################################
+#            - task: DownloadPipelineArtifact@2
+#              displayName: Download SharePoint Package (*.sppkg)
+#              inputs:
+#                buildType: current
+#                artifactName: spfx-package
+############################################################
+## determines: the name of generated and previously built artifact package *.sppkg
+############################################################
+#            - script: |
+#                CMD_GET_SPPKG_NAME=$(find $(Pipeline.Workspace)/spfx-package -name '*.sppkg' -exec basename {} \;)
+#                echo "##vso[task.setvariable variable=SpPkgFilename;isOutput=true]${CMD_GET_SPPKG_NAME}"
+#              displayName: Get generated *.sppkg filename 
+#              name: GetSharePointPackage
+############################################################
+## uploads: the *.sppkg package to the app-catalog
+############################################################
+#            - script: o365 spo app add --filepath "$(Pipeline.Workspace)/spfx-package/$(GetSharePointPackage.SpPkgFilename)" --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/ --scope sitecollection --overwrite --skipFeatureDeployment
+#              displayName: Upload SharePoint package to the App Catalog
+############################################################
+## deploys: the *.sppkg package to the app-catalog
+############################################################
+#            - script: o365 spo app deploy --name $(GetSharePointPackage.SpPkgFilename) --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/ --scope sitecollection --skipFeatureDeployment
+#              displayName: Deploy SharePoint package to the App Catalog
