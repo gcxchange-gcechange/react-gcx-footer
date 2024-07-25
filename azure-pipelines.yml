@@ -57,3 +57,45 @@ stages:
           inputs:
             targetPath: $(Build.Repository.LocalPath)/sharepoint/solution/$(GetSharePointPackage.SpPkgFilename)
             ArtifactName: spfx-package
+
+- stage: Test
+  dependsOn: []
+  jobs:
+############################################################
+## installs: npm dependencies 
+############################################################
+    - job: run_tests
+      displayName: Install npm, haibun, and test dependencies 
+      steps:
+        - script: npm install 
+          displayName: Install npm dependencies 
+############################################################
+## executes: gulp build
+############################################################
+        - task: gulp@0
+          displayName: SPFx build
+          inputs:
+            targets: build
+############################################################
+## executes: tests
+############################################################
+        - script: npm run test
+          displayName: Run test scripts
+          continueOnError: true 
+############################################################
+## publishes: code coverage results to the pipeline run 
+############################################################
+        - task: PublishCodeCoverageResults@1
+          displayName: Publish Code Coverage Results 
+          inputs:
+            codecoverageTool: cobertura 
+            summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+############################################################
+## publishes: test results using junit tests to the pipeline run
+############################################################
+        - task: PublishTestResults@2
+          displayName: Publish Test Results
+          inputs:
+            testResultsFormat: JUnit
+            testResultsFiles: '**/junit.xml'
+            failTaskOnFailedTests: true
