@@ -3,8 +3,8 @@ trigger:
     include: 
       - '*'
 
-variables:
-  - group: office365credentials 
+#variables:
+#  - group: office365credentials 
 
 stages:
 - stage: Build
@@ -120,8 +120,8 @@ stages:
 ############################################################
 ## logs in: Office M365 CLI
 ############################################################
-              - script: o365 login https://devgcx.sharepoint.com/ --authType password --userName $(AdminUserLogin) --password $(AdminUserPassword)
-                displayName: Login to OfficeM365
+#              - script: o365 login https://devgcx.sharepoint.com/ --authType password --userName $(AdminUserLogin) --password $(AdminUserPassword)
+#                displayName: Login to OfficeM365
 ############################################################
 ## downloads: the previously built artifact package *.sppkg
 ############################################################
