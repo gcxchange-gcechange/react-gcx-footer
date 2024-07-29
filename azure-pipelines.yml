@@ -3,8 +3,8 @@ trigger:
     include: 
       - '*'
 
-variables:
-  - group: office365credentials 
+#variables:
+#  - group: office365credentials 
 
 stages:
 - stage: Build
