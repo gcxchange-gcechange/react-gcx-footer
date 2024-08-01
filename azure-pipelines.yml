@@ -128,7 +128,7 @@ stages:
               - task: DownloadPipelineArtifact@2
                 displayName: Download SharePoint Package (*.sppkg)
                 inputs:
-                  buildType: current
+                  buildType: specific
                   artifactName: spfx-package
 ############################################################
 ## determines: the name of generated and previously built artifact package *.sppkg
