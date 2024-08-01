@@ -129,7 +129,10 @@ stages:
                 displayName: Download SharePoint Package (*.sppkg)
                 inputs:
                   buildType: specific
+                  project: $(System.TeamProject)
+                  buildId: $(Build.BuildId)
                   artifactName: spfx-package
+                  downloadPath: $(Pipeline.Workspace)
 ############################################################
 ## determines: the name of generated and previously built artifact package *.sppkg
 ############################################################
