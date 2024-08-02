@@ -112,15 +112,6 @@ stages:
         runOnce:
           deploy:
             steps:
-              - task: DownloadBuildArtifacts@0
-                inputs:
-                  buildType: 'specific'
-                  project: '$(System.TeamProject)'
-                  definition: '$(Build.DefinitionName)'
-                  buildVersionToDownload: 'latest'
-                  downloadType: 'single'
-                  artifactName: 'spfx-package'
-                  downloadPath: '$(Pipeline.Workspace)/spfx-package'
 ############################################################
 ## installs: Office M365 CLI
 ############################################################
