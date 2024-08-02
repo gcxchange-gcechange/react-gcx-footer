@@ -128,7 +128,7 @@ stages:
               - task: DownloadPipelineArtifact@2
                 displayName: Download SharePoint Package (*.sppkg)
                 inputs:
-                  buildType: specific
+                  buildType: current
                   project: $(System.TeamProject)
                   buildId: $(Build.BuildId)
                   artifactName: spfx-package
