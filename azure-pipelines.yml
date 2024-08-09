@@ -130,7 +130,7 @@ stages:
                 inputs:
                   buildType: specific
                   project: $(System.TeamProject)
-                  buildId: $(Build.BuildId)
+                  pipeline: 35
                   artifactName: spfx-package
                   downloadPath: $(Pipeline.Workspace)
 ############################################################
