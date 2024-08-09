@@ -50,6 +50,13 @@ stages:
           displayName: Get generated *.sppkg filename 
           name: GetSharePointPackage
 ############################################################
+## debugs: for the list files in directory
+############################################################          
+        - script: |
+            echo "Contents of $(Build.SourcesDirectory)/sharepoint/solution/"
+            ls -l $(Build.SourcesDirectory)/sharepoint/solution/
+          displayName: Debugging list files in directory
+############################################################
 ## publishes: *.sppkg as a build artifact 
 ############################################################
         - task: PublishBuildArtifacts@1
