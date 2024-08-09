@@ -57,13 +57,19 @@ stages:
             ls -l $(Build.SourcesDirectory)/sharepoint/solution/
           displayName: Debugging list files in directory
 ############################################################
-## publishes: *.sppkg as a build artifact 
+## copy and publishes: *.sppkg as a build artifact 
 ############################################################
+        - task: CopyFiles@2
+          inputs:
+            sourceFolder: $(Build.Repository.LocalPath)/sharepoint/solution
+            contents: '**/*.sppkg'
+            targetFolder: $(Build.ArtifactStagingDirectory)  
         - task: PublishBuildArtifacts@1
           displayName: Publish SharePoint Package (*.sppkg)
           inputs:
-            targetPath: $(Build.Repository.LocalPath)/sharepoint/solution/$(GetSharePointPackage.SpPkgFilename)
+            pathToPublish: $(Build.ArtifactStagingDirectory)
             artifactName: spfx-package
+            publishLocation: 'Container'
 
 - stage: Test
   dependsOn: []
