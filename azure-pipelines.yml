@@ -142,9 +142,9 @@ stages:
                 displayName: Download SharePoint Package (*.sppkg)
                 inputs:
                   buildType: specific
-                  project: $(Build.ArtifactStagingDirectory)
+                  project: $(Build.TeamPipeline)
                   pipeline: 35
-                  buildVersionToDownload: 1523
+                  buildVersionToDownload: specific
                   artifactName: spfx-package
                   downloadPath: $(Pipeline.Workspace)
 ############################################################
