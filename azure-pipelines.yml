@@ -144,7 +144,7 @@ stages:
                   buildType: specific
                   project: $(System.TeamProject)
                   pipeline: 35
-                  buildVersionToDownload: specific
+                  buildVersionToDownload: latest
                   artifactName: spfx-package
                   downloadPath: $(Pipeline.Workspace)
 ############################################################
