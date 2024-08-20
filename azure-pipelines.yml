@@ -158,7 +158,7 @@ stages:
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
-              - script: o365 spo app add --filepath "$(Pipeline.Workspace)/spfx-package/$(GetSharePointPackage.SpPkgFilename)" --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx/manageApps --scope sitecollection --overwrite --skipFeatureDeployment
+              - script: o365 spo app add --filepath "$(Pipeline.Workspace)/spfx-package/footer-webpart.sppkg" --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx/manageApps --scope sitecollection --overwrite --skipFeatureDeployment
                 displayName: Upload SharePoint package to the App Catalog
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
