@@ -141,11 +141,11 @@ stages:
               - task: DownloadPipelineArtifact@2
                 displayName: Download SharePoint Package (*.sppkg)
                 inputs:
-                  buildType: specific
+                  buildType: 'specific'
                   project: $(System.TeamProject)
                   pipeline: 35
-                  buildVersionToDownload: latest
-                  artifactName: spfx-package
+                  buildVersionToDownload: 'latest'
+                  artifactName: 'spfx-package'
                   downloadPath: $(Pipeline.Workspace)
 ############################################################
 ## determines: the name of generated and previously built artifact package *.sppkg
