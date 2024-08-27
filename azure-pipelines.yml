@@ -155,6 +155,11 @@ stages:
                   echo "##vso[task.setvariable variable=SpPkgFilename;isOutput=true]${CMD_GET_SPPKG_NAME}"
                 displayName: Get generated *.sppkg filename 
                 name: GetSharePointPackage
+
+              - script: |
+                  echo "Looking for *.sppkg files in $(Pipeline.Workspace)/spfx-package"
+                  find $(Pipeline.Workspace)/spfx-package -name '*.sppkg'
+                displayName: Debugging *.sppkg file search
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
