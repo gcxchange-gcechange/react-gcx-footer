@@ -170,7 +170,7 @@ stages:
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
-              - script: o365 spo app add -p $(Pipeline.Workspace)/spfx-package --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --overwrite --skipFeatureDeployment
+              - script: o365 spo app add -p $(Pipeline.Workspace)/spfx-package/*.sppkg --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --overwrite --skipFeatureDeployment
                   echo "Looking for the uploaded file"
                   find $(Pipeline.Workspace)/spfx-package -name '*.sppkg'
                 displayName: Verify Filename
