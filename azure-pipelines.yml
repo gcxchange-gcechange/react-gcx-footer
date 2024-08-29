@@ -141,15 +141,15 @@ stages:
 ############################################################
 ## downloads: the previously built artifact package *.sppkg
 ############################################################
-#              - task: DownloadPipelineArtifact@2
-#                displayName: Download SharePoint Package (*.sppkg)
-#                inputs:
-#                  buildType: 'specific'
-#                  project: $(System.TeamProject)
-#                  pipeline: 35
-#                  buildVersionToDownload: 'latest'
-#                  artifactName: 'spfx-package'
-#                  downloadPath: $(Pipeline.Workspace)
+              - task: DownloadPipelineArtifact@2
+                displayName: Download SharePoint Package (*.sppkg)
+                inputs:
+                  buildType: 'specific'
+                  project: $(System.TeamProject)
+                  pipeline: 35
+                  buildVersionToDownload: 'latest'
+                  artifactName: 'spfx-package'
+                  downloadPath: $(Pipeline.Workspace)
 
               - script: |
                   echo "Contents of $(Pipeline.Workspace):"
