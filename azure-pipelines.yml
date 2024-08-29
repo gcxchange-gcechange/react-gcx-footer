@@ -117,6 +117,9 @@ stages:
   dependsOn:
     - Build
     - Test 
+  variables:
+    SpPkgFilename: $[ StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename'] ]
+
   jobs:
     - deployment: deploy_dev_sppkg
       displayName: Deploy to Dev Environment 
@@ -170,7 +173,7 @@ stages:
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
-              - script: o365 spo app add -p $(Pipeline.Workspace)/spfx-package/$(GetSharePointPackage.SpPkgFilename) --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --overwrite
+              - script: o365 spo app add -p $(Pipeline.Workspace)/spfx-package/$(SpPkgFilename) --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --overwrite
                 displayName: Verify Filename
 
 #              - script: |
@@ -180,5 +183,5 @@ stages:
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
 ############################################################
-              - script: o365 spo app deploy -name $(GetSharePointPackage.SpPkgFilename) --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection 
+              - script: o365 spo app deploy -name $(SpPkgFilename) --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection 
                 displayName: Deploy SharePoint package to the App Catalog
