@@ -118,7 +118,7 @@ stages:
     - Build
     - Test 
   variables:
-    SpPkgFilename: $[StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename'] ]
+    SpPkgFilename: $[StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename']]
 
   jobs:
     - deployment: deploy_dev_sppkg
