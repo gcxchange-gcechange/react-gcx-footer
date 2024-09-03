@@ -136,7 +136,7 @@ stages:
 ############################################################
 ## logs in: Office M365 CLI
 ############################################################
-              - script: o365 login https://devgcx.sharepoint.com/ --authType password --userName $(AdminUserLogin) --password $(AdminUserPassword)
+              - script: m365 login https://devgcx.sharepoint.com/ --authType password --userName $(AdminUserLogin) --password $(AdminUserPassword)
                 displayName: Login to OfficeM365
 ############################################################
 ## downloads: the previously built artifact package *.sppkg
@@ -174,7 +174,7 @@ stages:
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
       
-              - script: o365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --overwrite
+              - script: m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --overwrite
                 displayName: Verify Filename
 
 #              - script: |
@@ -184,5 +184,5 @@ stages:
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
 ############################################################
-              - script: o365 spo app deploy -name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --skipFeatureDeployment
+              - script: m365 spo app deploy -name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --skipFeatureDeployment
                 displayName: Deploy SharePoint package to the App Catalog
