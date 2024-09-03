@@ -156,7 +156,6 @@ stages:
                   ls -l $(Pipeline.Workspace)
                   echo "Contents of $(Pipeline.Workspace)/spfx-package:"
                   ls -l $(Pipeline.Workspace)/spfx-package
-                  echo: "Filename obtained: $(SpPkgFilename)"
                 displayName: List files in workspace
 ############################################################
 ## determines: the name of generated and previously built artifact package *.sppkg
