@@ -141,7 +141,7 @@ stages:
 ############################################################
 #--authType password --userName $(AdminUserLogin) --password $(AdminUserPassword)
               - script: m365 login clientSecret  --clientId $(ClientId) --clientSecret $(ClientSecret) --tenantId $(TenantId)
-                displayName: Login to OfficeM365
+                displayName: Login to OfficeM365/
 ############################################################
 ## downloads: the previously built artifact package *.sppkg
 ############################################################
