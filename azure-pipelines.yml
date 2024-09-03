@@ -131,7 +131,7 @@ stages:
 ############################################################
 ## installs: Office M365 CLI
 ############################################################
-              - script: sudo npm install --global @pnp/office365-cli
+              - script: sudo npm install --global  @pnp/cli-microsoft365
                 displayName: Install OfficeM365 CLI
 ############################################################
 ## logs in: Office M365 CLI
