@@ -156,6 +156,7 @@ stages:
                   ls -l $(Pipeline.Workspace)
                   echo "Contents of $(Pipeline.Workspace)/spfx-package:"
                   ls -l $(Pipeline.Workspace)/spfx-package
+                  echo: "Filename obtained: $(SpPkgFilename)"
                 displayName: List files in workspace
 ############################################################
 ## determines: the name of generated and previously built artifact package *.sppkg
@@ -174,15 +175,15 @@ stages:
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
       
-              - script: o365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --overwrite
-                displayName: Verify Filename
+#              - script: o365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --overwrite
+#                displayName: Verify Filename
 
-              - script: |
-                  echo "Filename obtained: $(GetSharePointPackage.SpPkgFilename)"
-                displayName: Verify the file is uploaded
+#              - script: |
+#                  echo "Filename obtained: $(GetSharePointPackage.SpPkgFilename)"
+#                displayName: Verify the file is uploaded
 
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
 ############################################################
-              - script: o365 spo app deploy -name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --skipFeatureDeployment
-                displayName: Deploy SharePoint package to the App Catalog
+#              - script: o365 spo app deploy -name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --skipFeatureDeployment
+#                displayName: Deploy SharePoint package to the App Catalog
