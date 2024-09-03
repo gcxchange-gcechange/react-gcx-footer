@@ -136,7 +136,7 @@ stages:
 ############################################################
 ## logs in: Office M365 CLI
 ############################################################
-              - script: m365 login https://devgcx.sharepoint.com/ --authType password --userName $(AdminUserLogin) --password $(AdminUserPassword)
+              - script: m365 login --authType password --userName $(AdminUserLogin) --password $(AdminUserPassword)
                 displayName: Login to OfficeM365
 ############################################################
 ## downloads: the previously built artifact package *.sppkg
