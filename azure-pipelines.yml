@@ -160,11 +160,11 @@ stages:
 ############################################################
 ## determines: the name of generated and previously built artifact package *.sppkg
 ############################################################
-              - script: |
-                  CMD_GET_SPPKG_NAME=$(find $(Pipeline.Workspace)/spfx-package -name '*.sppkg' -exec basename {} \;)
-                  echo "##vso[task.setvariable variable=SpPkgFilename;isOutput=true]${CMD_GET_SPPKG_NAME}"
-                displayName: Get generated *.sppkg filename 
-                name: GetSharePointPackage
+#              - script: |
+#                  CMD_GET_SPPKG_NAME=$(find $(Pipeline.Workspace)/spfx-package -name '*.sppkg' -exec basename {} \;)
+#                  echo "##vso[task.setvariable variable=SpPkgFilename;isOutput=true]${CMD_GET_SPPKG_NAME}"
+#                displayName: Get generated *.sppkg filename 
+#                name: GetSharePointPackage
 
 #              - script: |
 #                  echo "Looking for *.sppkg files in $(Pipeline.Workspace)/spfx-package"
