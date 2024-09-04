@@ -140,7 +140,8 @@ stages:
 ############################################################
 ## logs in: Office M365 CLI
 ############################################################
-              - script: m365 login --appId $(ClientId) --tenant $(TenantId) --authType secret --secret $(ClientSecret)
+              - script: m365 login --authType clientSecret --appId $(ClientId) --secret $(ClientSecret) --tenant $(TenantId)
+#                  m365 login --appId $(ClientId) --tenant $(TenantId) --authType secret --secret $(ClientSecret)
                 displayName: Login to OfficeM365
 ############################################################
 ## downloads: the previously built artifact package *.sppkg
