@@ -4,7 +4,7 @@ trigger:
       - '*'
 
 variables:
-  - group: office365credentials 
+#  - group: office365credentials 
   - group: appregistrationcredentials
 
 stages:
