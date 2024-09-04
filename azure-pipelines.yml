@@ -5,6 +5,7 @@ trigger:
 
 variables:
   - group: office365credentials 
+  - group: appregistrationcredentials
 
 stages:
 - stage: Build
@@ -139,7 +140,8 @@ stages:
 ############################################################
 ## logs in: Office M365 CLI
 ############################################################
-              - script: m365 setup --scripting; m365 login --authType password --userName $(AdminUserLogin) --password $(AdminUserPassword)
+              - script: m365 setup --scripting; m365 login clientSecret  --clientId $(ClientId) --clientSecret $(ClientSecret) --tenantId $(TenantId)
+#              m365 login --authType password --userName $(AdminUserLogin) --password $(AdminUserPassword)
 #                  m365 login clientSecret  --clientId $(ClientId) --clientSecret $(ClientSecret) --tenantId $(TenantId)
                 displayName: Login to OfficeM365
 ############################################################
