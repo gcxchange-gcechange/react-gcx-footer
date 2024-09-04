@@ -140,7 +140,7 @@ stages:
 ############################################################
 ## logs in: Office M365 CLI
 ############################################################
-              - script: m365 login --authType secret --appId $ClientId --secret $ClientSecret --tenant 28d8f6f0-3824-448a-9247-b88592acc8b7
+              - script: m365 login --authType secret --appId $ClientId --secret $ClientSecret --tenant devgcx.shareppoint.com
                 displayName: Login to OfficeM365
                 env:
                   ClientId: $(ClientId)
