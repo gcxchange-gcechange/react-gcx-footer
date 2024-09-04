@@ -140,7 +140,8 @@ stages:
 ############################################################
 ## logs in: Office M365 CLI
 ############################################################
-              - script: m365 login --authType secret --clientId $(ClientId) --clientSecret $(ClientSecret) --tenantId $(TenantId)
+              - script: m365 login --appId $(ClientId) --tenant $(TenantId) --authType secret --secret $(ClientSecret)
+#              m365 setup; m365 login --authType secret --clientId $(ClientId) --clientSecret $(ClientSecret) --tenantId $(TenantId)
 #              m365 login --authType password --userName $(AdminUserLogin) --password $(AdminUserPassword)
 #                  m365 login clientSecret  --clientId $(ClientId) --clientSecret $(ClientSecret) --tenantId $(TenantId)
                 displayName: Login to OfficeM365
