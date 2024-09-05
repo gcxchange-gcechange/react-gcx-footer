@@ -143,12 +143,12 @@ stages:
                 inputs: 
                   azureSubscription: sharepoint_integration
                   scriptType: bash
-                  inlineScript: m365 login --authType secret --appId "$ClientId" --secret "$ClientSecret" --tenant "$TenantId"
+                  inlineScript: m365 login --authType secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
                 displayName: Login to OfficeM365
                 env:
-                  ClientId: $(ClientId)
-                  ClientSecret: $(ClientSecret)
-                  TenantId: $(TenantId)
+                  App: $(ClientId)
+                  Secret: $(ClientSecret)
+                  Tenant: $(TenantId)
 ############################################################
 ## downloads: the previously built artifact package *.sppkg
 ############################################################
