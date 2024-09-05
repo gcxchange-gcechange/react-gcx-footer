@@ -119,9 +119,9 @@ stages:
     - Test 
   variables:
     SpPkgFilename: $[StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename']]
-    AppsID: $(ClientId)
-    SecretsID: $(ClientSecret)
-    TenantsID: $(TenantId)
+#    AppsID: $(ClientId)
+#    SecretsID: $(ClientSecret)
+#    TenantsID: $(TenantId)
 
   jobs:
     - deployment: deploy_dev_sppkg
@@ -146,9 +146,9 @@ stages:
                   inlineScript: m365 login --authType secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
                 displayName: Login to OfficeM365
                 env:
-                  App: $(ClientId)
-                  Secret: $(ClientSecret)
-                  Tenant: $(TenantId)
+                  App: $(AppsID)
+                  Secret: $(SecretsID)
+                  Tenant: $(TenantsID)
 ############################################################
 ## downloads: the previously built artifact package *.sppkg
 ############################################################
