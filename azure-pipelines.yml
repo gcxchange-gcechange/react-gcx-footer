@@ -181,16 +181,6 @@ stages:
                   Secret: $(SecretsID)
                   Tenant: $(TenantsID)
 
-#              - script: |
-#                  m365 login --authType secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
-#                  m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --overwrite
-#                  m365 spo app deploy --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --skipFeatureDeployment
-#                displayName: "Deploy SharePoint Package"
-#                env:
-#                  App: $(AppsID)
-#                  Secret: $(SecretsID)
-#                  Tenant: $(TenantsID)
-
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
