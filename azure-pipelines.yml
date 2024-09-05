@@ -173,8 +173,8 @@ stages:
                   scriptLocation: 'inlineScript'
                   inlineScript: m365 login --authType secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
                   arguments: |
-                    m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogScope sitecollection --overwrite
-                    m365 spo app deploy --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogScope sitecollection --skipFeatureDeployment
+                    m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --overwrite
+                    m365 spo app deploy --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --skipFeatureDeployment
                 displayName: Login to OfficeM365 and Upload to SharePoint package to the App Catalog 
                 env:
                   App: $(AppsID)
@@ -185,7 +185,7 @@ stages:
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
 #              - script: |
-#                  m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogScope sitecollection --overwrite
+#                  m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --overwrite
 #                displayName: Deploy SharePoint package to the App Catalog
 
 
@@ -193,5 +193,5 @@ stages:
 ## deploys: the *.sppkg package to the app-catalog
 ############################################################
 #              - script: |
-#                  m365 spo app deploy --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogScope sitecollection --skipFeatureDeployment
+#                  m365 spo app deploy --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --skipFeatureDeployment
 #                displayName: Deploy SharePoint package to the App Catalog
