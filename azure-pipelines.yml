@@ -142,6 +142,7 @@ stages:
                   scriptType: bash
                   scriptLocation: 'inlineScript'
                   inlineScript: m365 login --authType secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
+                  arguments: m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogScope sitecollection --overwrite
                 displayName: Login to OfficeM365
                 env:
                   App: $(AppsID)
@@ -162,8 +163,8 @@ stages:
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
       
-              - script: m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogScope sitecollection --overwrite
-                displayName: Upload SharePoint package to the App Catalog
+#              - script: m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogScope sitecollection --overwrite
+#                displayName: Upload SharePoint package to the App Catalog
 
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
