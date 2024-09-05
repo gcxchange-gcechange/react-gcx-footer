@@ -119,9 +119,9 @@ stages:
     - Test 
   variables:
     SpPkgFilename: $[StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename']]
-    ClientId: $(ClientId)
-    ClientSecret: $(ClientSecret)
-    TenantId: $(TenantId)
+    AppsID: $(ClientId)
+    SecretsID: $(ClientSecret)
+    TenantsID: $(TenantId)
 
   jobs:
     - deployment: deploy_dev_sppkg
