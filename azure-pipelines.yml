@@ -7,9 +7,14 @@ variables:
   - group: appregistrationcredentials
 
 stages:
+############################################################
+## Build Stage
+############################################################
+
 - stage: Build
   dependsOn: []
   jobs:
+
 ############################################################
 ## installs: npm dependencies 
 ############################################################
@@ -18,6 +23,7 @@ stages:
       steps:
         - script: npm install
           displayName: Install npm dependencies 
+        
 ############################################################
 ## executes: gulp build
 ############################################################
@@ -25,6 +31,7 @@ stages:
           displayName: SPFx build
           inputs:
             targets: build
+
 ############################################################
 ## executes: gulp bundle --ship 
 ############################################################
@@ -33,6 +40,7 @@ stages:
           inputs:
             targets: bundle
             arguments: --ship
+
 ############################################################
 ## executes: gulp package-solution --ship
 ############################################################
@@ -41,6 +49,7 @@ stages:
           inputs:
             targets: package-solution 
             arguments: --ship
+
 ############################################################
 ## evaluates: the name of the generated *.sppkg package
 ############################################################
@@ -49,6 +58,7 @@ stages:
             echo "##vso[task.setvariable variable=SpPkgFilename;isOutput=true]${CMD_GET_SPPKG_NAME}"
           displayName: Get generated *.sppkg filename 
           name: GetSharePointPackage
+
 ############################################################
 ## debugs: for the list files in directory
 ############################################################          
@@ -56,14 +66,19 @@ stages:
             echo "Contents of $(Build.SourcesDirectory)/sharepoint/solution/"
             ls -l $(Build.SourcesDirectory)/sharepoint/solution/
           displayName: Debugging list files in directory
+
 ############################################################
-## copy and publishes: *.sppkg as a build artifact 
+## copies: *.sppkg as a build artifact 
 ############################################################
         - task: CopyFiles@2
           inputs:
             sourceFolder: $(Build.Repository.LocalPath)/sharepoint/solution
             contents: '**/*.sppkg'
             targetFolder: $(Build.ArtifactStagingDirectory)  
+
+############################################################
+## publishes: *.sppkg as a build artifact 
+###########################################################
         - task: PublishBuildArtifacts@1
           displayName: Publish SharePoint Package (*.sppkg)
           inputs:
@@ -71,9 +86,14 @@ stages:
             artifactName: spfx-package
             publishLocation: 'Container'
 
+############################################################
+## Test Stage
+############################################################
+
 - stage: Test
   dependsOn: []
   jobs:
+
 ############################################################
 ## installs: npm dependencies 
 ############################################################
@@ -82,6 +102,7 @@ stages:
       steps:
         - script: npm install 
           displayName: Install npm dependencies 
+
 ############################################################
 ## executes: gulp build
 ############################################################
@@ -89,12 +110,14 @@ stages:
           displayName: SPFx build
           inputs:
             targets: build
+
 ############################################################
 ## executes: tests
 ############################################################
         - script: npm run test
           displayName: Run test scripts
           continueOnError: true 
+
 ############################################################
 ## publishes: code coverage results to the pipeline run 
 ############################################################
@@ -103,6 +126,7 @@ stages:
           inputs:
             codecoverageTool: cobertura 
             summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+
 ############################################################
 ## publishes: test results using junit tests to the pipeline run
 ############################################################
@@ -112,6 +136,10 @@ stages:
             testResultsFormat: JUnit
             testResultsFiles: '**/junit.xml'
             failTaskOnFailedTests: true
+
+############################################################
+## Dev Deployment Stage
+############################################################
 
 - stage: Deploy_Development 
   dependsOn:
@@ -128,13 +156,15 @@ stages:
         runOnce:
           deploy:
             steps:
+
 ############################################################
 ## installs: Office M365 CLI
 ############################################################
               - script: sudo npm install --global  @pnp/cli-microsoft365
                 displayName: Install OfficeM365 CLI
+
 ############################################################
-## logs in: Office M365 CLI
+## logs in and uploads: Office M365 CLI
 ############################################################
               - task: AzureCLI@2
                 inputs: 
@@ -150,10 +180,6 @@ stages:
                   App: $(AppsID)
                   Secret: $(SecretsID)
                   Tenant: $(TenantsID)
-
-#              - script: m365 login --authType deviceCode
-#                displayName: Login M365
-
 
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
