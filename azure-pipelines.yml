@@ -141,32 +141,14 @@ stages:
                   azureSubscription: sharepoint_integration
                   scriptType: bash
                   scriptLocation: 'inlineScript'
-                  inlineScript: |
-                    m365 login --authType secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
-                    m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogScope sitecollection --overwrite
+                  inlineScript: m365 login --authType secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
+                  arguments: m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogScope sitecollection --overwrite
                 #    m365 spo app deploy -name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogscope sitecollection --skipFeatureDeployment
                 displayName: Login to OfficeM365, Upload and Deploy to SharePoint package to the App Catalog 
                 env:
                   App: $(AppsID)
                   Secret: $(SecretsID)
                   Tenant: $(TenantsID)
-
-###########################################################
-## determines: the name of generated and previously built artifact package *.sppkg
-############################################################
-
-#              - script: |
-#                  CMD_GET_SPPKG_NAME=$(find $(Pipeline.Workspace)/spfx-package -name '*.sppkg' -exec basename {} \;)
-#                  echo "##vso[task.setvariable variable=SpPkgFilename;isOutput=true]${CMD_GET_SPPKG_NAME}"
-#                displayName: Get generated *.sppkg filename 
-#                name: GetSharePointPackage
-
-############################################################
-## uploads: the *.sppkg package to the app-catalog
-############################################################
-      
-#              - script: m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogScope sitecollection --overwrite
-#                displayName: Upload SharePoint package to the App Catalog
 
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
