@@ -119,9 +119,6 @@ stages:
     - Test 
   variables:
     SpPkgFilename: $[StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename']]
-#    AppsID: $(ClientId)
-#    SecretsID: $(ClientSecret)
-#    TenantsID: $(TenantId)
 
   jobs:
     - deployment: deploy_dev_sppkg
@@ -150,48 +147,23 @@ stages:
                   App: $(AppsID)
                   Secret: $(SecretsID)
                   Tenant: $(TenantsID)
-############################################################
-## downloads: the previously built artifact package *.sppkg
-############################################################
-#              - task: DownloadPipelineArtifact@2
-#                displayName: Download SharePoint Package (*.sppkg)
-#                inputs:
-#                  buildType: 'specific'
-#                  project: $(System.TeamProject)
-#                  pipeline: 35
-#                  buildVersionToDownload: 'latest'
-#                  artifactName: 'spfx-package'
-#                  downloadPath: $(Pipeline.Workspace)
 
-              - script: |
-                  echo "Contents of $(Pipeline.Workspace):"
-                  ls -l $(Pipeline.Workspace)
-                  echo "Contents of $(Pipeline.Workspace)/spfx-package:"
-                  ls -l $(Pipeline.Workspace)/spfx-package
-                displayName: List files in workspace
-############################################################
+###########################################################
 ## determines: the name of generated and previously built artifact package *.sppkg
 ############################################################
+
 #              - script: |
 #                  CMD_GET_SPPKG_NAME=$(find $(Pipeline.Workspace)/spfx-package -name '*.sppkg' -exec basename {} \;)
 #                  echo "##vso[task.setvariable variable=SpPkgFilename;isOutput=true]${CMD_GET_SPPKG_NAME}"
 #                displayName: Get generated *.sppkg filename 
 #                name: GetSharePointPackage
 
-#              - script: |
-#                  echo "Looking for *.sppkg files in $(Pipeline.Workspace)/spfx-package"
-#                  find $(Pipeline.Workspace)/spfx-package -name '*.sppkg'
-#                displayName: Debugging *.sppkg file search
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
       
               - script: m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --scope sitecollection --overwrite
                 displayName: Upload SharePoint package to the App Catalog
-
-#              - script: |
-#                  echo "Filename obtained: $(GetSharePointPackage.SpPkgFilename)"
-#                displayName: Verify the file is uploaded
 
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
