@@ -152,5 +152,6 @@ stages:
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
 ############################################################
-              - script: m365 spo app deploy -name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogscope sitecollection --skipFeatureDeployment
+              - script: m365 spo app deploy -h
+              #m365 spo app deploy -name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog.aspx --appCatalogscope sitecollection --skipFeatureDeployment
                 displayName: Deploy SharePoint package to the App Catalog
