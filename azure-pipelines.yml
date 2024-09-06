@@ -164,7 +164,7 @@ stages:
                 displayName: Install OfficeM365 CLI
 
 ############################################################
-## logs in and uploads: Office M365 CLI
+## logs in, uploads, and deploys: Office M365 CLI
 ############################################################
               - task: AzureCLI@2
                 inputs: 
@@ -181,17 +181,3 @@ stages:
                   Secret: $(SecretsID)
                   Tenant: $(TenantsID)
 
-############################################################
-## uploads: the *.sppkg package to the app-catalog
-############################################################
-#              - script: |
-#                  m365 spo app add -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --overwrite
-#                displayName: Deploy SharePoint package to the App Catalog
-
-
-############################################################
-## deploys: the *.sppkg package to the app-catalog
-############################################################
-#              - script: |
-#                  m365 spo app deploy --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --skipFeatureDeployment
-#                displayName: Deploy SharePoint package to the App Catalog
