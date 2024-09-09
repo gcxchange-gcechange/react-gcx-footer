@@ -188,8 +188,8 @@ stages:
               - script: m365 login --authType password --userName "$AdminUser" --password "$AdminPassword"
                 displayName: Login to OfficeM365
                 env:
-                AdminUser: $(AdminUserLogin)
-                AdminPassword: $(AdminUserPassword)
+                  AdminUser: $(AdminUserLogin)
+                  AdminPassword: $(AdminUserPassword)
               
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
