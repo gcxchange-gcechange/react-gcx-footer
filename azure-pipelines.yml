@@ -3,9 +3,9 @@ trigger:
     include: 
       - '*'
 
-variables:
+#variables:
 #  - group: appregistrationcredentials
-  - group: m365credentials
+#  - group: m365credentials
 
 stages:
 ############################################################
@@ -185,14 +185,15 @@ stages:
 ############################################################
 ## logs in: Office M365 CLI
 ############################################################
-              - script: m365 login --authType clientSecret password --userName "$AdminUser" --password "$AdminPassword" --appId "$App" --secret "$Secret" --tenant "$Tenant" 
+              - script: m365 login --authType identity
+#              m365 login --authType clientSecret password --userName "$AdminUser" --password "$AdminPassword" --appId "$App" --secret "$Secret" --tenant "$Tenant" 
                 displayName: Login to OfficeM365
-                env:
-                  AdminUser: $(AdminUserLogin)
-                  AdminPassword: $(AdminUserPassword)
-                  App: $(AppsID)
-                  Secret: $(SecretsID)
-                  Tenant: $(TenantsID)
+#                env:
+#                  AdminUser: $(AdminUserLogin)
+#                  AdminPassword: $(AdminUserPassword)
+#                  App: $(AppsID)
+#                  Secret: $(SecretsID)
+#                  Tenant: $(TenantsID)
               
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
