@@ -167,11 +167,11 @@ stages:
 ############################################################
 ## logs in, uploads, and deploys: Office M365 CLI
 ############################################################
-              - task: AzureCLI@2
-                inputs: 
-                  azureSubscription: sharepoint_integration
-                  scriptType: bash
-                  scriptLocation: 'inlineScript'
+#              - task: AzureCLI@2
+#                inputs: 
+#                  azureSubscription: sharepoint_integration
+#                  scriptType: bash
+#                  scriptLocation: 'inlineScript'
 #                  inlineScript: m365 login --debug --verbose --appId "$App" --tenant "$Tenant"
 #                  m365 login --authType identity --userName a15bddb7-4c63-4de1-9198-7bd7026d59b0
 #                    m365 login --authType secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
