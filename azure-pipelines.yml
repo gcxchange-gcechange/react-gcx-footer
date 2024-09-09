@@ -185,12 +185,14 @@ stages:
 ############################################################
 ## logs in: Office M365 CLI
 ############################################################
-              - script: m365 login --authType password --userName "$AdminUser" --password "$AdminPassword" --appId "$App"
+              - script: m365 login --authType password --userName "$AdminUser" --password "$AdminPassword" secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
                 displayName: Login to OfficeM365
                 env:
                   AdminUser: $(AdminUserLogin)
                   AdminPassword: $(AdminUserPassword)
                   App: $(AppsID)
+                  Secret: $(SecretsID)
+                  Tenant: $(TenantsID)
               
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
