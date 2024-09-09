@@ -185,7 +185,7 @@ stages:
 ############################################################
 ## logs in: Office M365 CLI
 ############################################################
-              - script: m365 login --authType password --userName "$AdminUser" --password "$AdminPassword" secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
+              - script: m365 login --authType clientSecret password --userName "$AdminUser" --password "$AdminPassword" --appId "$App" --secret "$Secret" --tenant "$Tenant" 
                 displayName: Login to OfficeM365
                 env:
                   AdminUser: $(AdminUserLogin)
