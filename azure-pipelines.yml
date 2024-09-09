@@ -5,7 +5,8 @@ trigger:
 
 variables:
 #  - group: appregistrationcredentials
-  - group: m365credentials
+#  - group: m365credentials
+   - group: certificateCredential
 
 stages:
 ############################################################
@@ -186,12 +187,13 @@ stages:
 ############################################################
 ## logs in: Office M365 CLI
 ############################################################
-              - script: m365 login --authType secret --appId "$App" --secret "$Secret" --tenant "$Tenant" 
+              - script: m365 login --debug --verbose certificate --certificateBase64Encoded "$CertificateID" --appId "$App" --tenant "$Tenant" --password "$PasswordID"
                 displayName: Login to OfficeM365
                 env:
                   App: $(AppsID)
-                  Secret: $(SecretsID)
                   Tenant: $(TenantsID)
+                  CertificateID: $(Credential)
+                  PasswordID: $(Password)
               
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
