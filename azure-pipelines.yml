@@ -4,8 +4,6 @@ trigger:
       - '*'
 
 variables:
-#  - group: appregistrationcredentials
-#  - group: m365credentials
    - group: certificateCredential
 
 stages:
@@ -60,14 +58,6 @@ stages:
             echo "##vso[task.setvariable variable=SpPkgFilename;isOutput=true]${CMD_GET_SPPKG_NAME}"
           displayName: Get generated *.sppkg filename 
           name: GetSharePointPackage
-
-############################################################
-## debugs: for the list files in directory
-############################################################          
-        - script: |
-            echo "Contents of $(Build.SourcesDirectory)/sharepoint/solution/"
-            ls -l $(Build.SourcesDirectory)/sharepoint/solution/
-          displayName: Debugging list files in directory
 
 ############################################################
 ## copies: *.sppkg as a build artifact 
@@ -164,25 +154,6 @@ stages:
 ############################################################
               - script: sudo npm install --global  @pnp/cli-microsoft365
                 displayName: Install OfficeM365 CLI
-
-############################################################
-## logs in, uploads, and deploys: Office M365 CLI
-############################################################
-#              - task: AzureCLI@2
-#                inputs: 
-#                  azureSubscription: sharepoint_integration
-#                  scriptType: bash
-#                  scriptLocation: 'inlineScript'
-#                  inlineScript: m365 login --debug --verbose --appId "$App" --tenant "$Tenant"
-#                  m365 login --authType identity --userName a15bddb7-4c63-4de1-9198-7bd7026d59b0
-#                    m365 login --authType secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
-#                    m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --overwrite
-#                    m365 spo app deploy --debug --verbose --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --skipFeatureDeployment
-#                displayName: Login to OfficeM365
-#                env:
-#                  App: $(AppsID)
-#                  Secret: $(SecretsID)
-#                  Tenant: $(TenantsID)
  
 ############################################################
 ## logs in: Office M365 CLI
