@@ -172,8 +172,7 @@ stages:
                   azureSubscription: sharepoint_integration
                   scriptType: bash
                   scriptLocation: 'inlineScript'
-                  inlineScript: | 
-                    m365 login --authType identity --appId "$App"
+                  inlineScript: m365 login --authType identity --appId "$App"
 #                    m365 login --authType secret --appId "$App" --secret "$Secret" --tenant "$Tenant"
 #                    m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --overwrite
 #                    m365 spo app deploy --debug --verbose --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --skipFeatureDeployment
