@@ -190,6 +190,7 @@ stages:
                 env:
                   AdminUser: $(AdminUserLogin)
                   AdminPassword: $(AdminUserPassword)
+                  App: $(AppsID)
               
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
