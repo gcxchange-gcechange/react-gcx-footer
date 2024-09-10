@@ -127,7 +127,7 @@ stages:
               testResultsFiles: '**/junit.xml'
               failTaskOnFailedTests: true
 
-  - stage: E2E test
+  - stage: E2E_test
     jobs:
       - job: e2etests
         pool:
@@ -138,7 +138,7 @@ stages:
           # volumes: [e2e-reviews]
 
         steps:
-          - checkout: add-e2e-tests
+          # - checkout: add-e2e-tests
           - task: Npm@1
             inputs:
               command: 'install'
