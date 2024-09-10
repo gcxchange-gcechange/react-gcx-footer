@@ -130,6 +130,7 @@ stages:
               failTaskOnFailedTests: true
 
   - stage: E2E_test
+    condition: always()
     jobs:
       - job: e2etests
         pool:
