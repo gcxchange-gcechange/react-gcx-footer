@@ -167,6 +167,12 @@ stages:
                   PasswordID: $(Password)
               
 ############################################################
+## connects: the *.sppkg package to the app-catalog
+############################################################
+              - script: m365 spo connect --debug --verbose --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog
+                displayName: Connects to the App Catalog 
+                
+############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
               - script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --overwrite
