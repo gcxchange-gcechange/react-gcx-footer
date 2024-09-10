@@ -169,11 +169,11 @@ stages:
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
-              - script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --overwrite
+              - script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog --appCatalogScope sitecollection --overwrite
                 displayName: Upload to SharePoint package to the App Catalog
 
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
 ############################################################
-              - script:  m365 spo app deploy --debug --verbose --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --skipFeatureDeployment
+              - script:  m365 spo app deploy --debug --verbose --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog/_layouts/15/tenantAppCatalog --appCatalogScope sitecollection --skipFeatureDeployment
                 displayName: Deploy to SharePoint package to the App Catalog
