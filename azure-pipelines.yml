@@ -187,7 +187,7 @@ stages:
     dependsOn:
       - Build
       - Test
-      - E2E test
+      - E2E_test
     variables:
       SpPkgFilename: $[StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename']]
 
