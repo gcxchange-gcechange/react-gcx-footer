@@ -1,6 +1,7 @@
 # haibun e2e
 capture
 failures.*.json
+junit
 
 # Logs
 logs
