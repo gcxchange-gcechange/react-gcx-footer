@@ -1,3 +1,7 @@
+# haibun e2e
+capture
+failures.*.json
+
 # Logs
 logs
 *.log
