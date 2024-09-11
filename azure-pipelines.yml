@@ -136,8 +136,8 @@ stages:
         pool:
           vmImage: 'ubuntu-latest'
 
-        container:
-          image: mcr.microsoft.com/playwright:v1.40.1-jammy
+        # container:
+        #   image: mcr.microsoft.com/playwright:v1.40.1-jammy
           # volumes: [e2e-reviews]
 
         steps:
@@ -148,6 +148,13 @@ stages:
             displayName: 'installing dependencies'
 
           - task: CmdLine@2
+            displayName: 'playwright deps'
+            continueOnError: false
+            inputs:
+              script: |
+                npx playwright install
+
+          - task: CmdLine@2
             displayName: 'make junit test directory'
             continueOnError: false
             inputs:
@@ -155,27 +162,27 @@ stages:
                 mkdir junit
 
           - task: CmdLine@2
-            displayName: 'Running path e2e tests'
+            displayName: 'Running basic e2e-basic tests'
             continueOnError: true
             inputs:
               script: |
                 HAIBUN_OUTPUT_DEST=junit/basic.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_DESCRIPTION="gcx e2e tests" npm run e2e-basic
 
-          - task: CmdLine@2
-            displayName: 'Publish test result history'
-            continueOnError: true
-            inputs:
-              script: |
-                npm run publish-history-azure
+          # - task: CmdLine@2
+          #   displayName: 'Publish test result history'
+          #   continueOnError: true
+          #   inputs:
+          #     script: |
+          #       npm run publish-history-azure
 
-          - task: CmdLine@2
-            displayName: 'Publish dashboard'
-            continueOnError: true
-            inputs:
-              script: |
-                pwd
-                ls -la
-                npm run publish-reviewer-azure
+          # - task: CmdLine@2
+          #   displayName: 'Publish dashboard'
+          #   continueOnError: true
+          #   inputs:
+          #     script: |
+          #       pwd
+          #       ls -la
+          #       npm run publish-reviewer-azure
 
           - task: PublishTestResults@2
             inputs:
