@@ -169,7 +169,7 @@ stages:
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
-              - script: m365 spo site get --url https://devgcx.sharepoint.com/sites/appcatalog
+              - script: m365 spo site appcatalog add --siteUrl https://devgcx.sharepoint.com/sites/appcatalog
                 displayName: Debugging
               - script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --overwrite
                 displayName: Upload to SharePoint package to the App Catalog
