@@ -136,22 +136,21 @@ stages:
         pool:
           vmImage: 'ubuntu-latest'
 
-        # container:
-        #   image: mcr.microsoft.com/playwright:v1.40.1-jammy
-          # volumes: [e2e-reviews]
-
         steps:
-          # - checkout: add-e2e-tests
-          - task: Npm@1
+          - task: CmdLine@2
+            displayName: 'npm install'
+            continueOnError: false
             inputs:
-              command: 'install'
-            displayName: 'installing dependencies'
+              script: |
+                cd haibun
+                npm install
 
           - task: CmdLine@2
             displayName: 'playwright deps'
             continueOnError: false
             inputs:
               script: |
+                cd haibun
                 npx playwright install
 
           - task: CmdLine@2
@@ -159,6 +158,7 @@ stages:
             continueOnError: false
             inputs:
               script: |
+                cd haibun
                 mkdir junit
 
           - task: CmdLine@2
@@ -166,7 +166,8 @@ stages:
             continueOnError: true
             inputs:
               script: |
-                HAIBUN_O_WEBPLAYWRIGHT_HEADLESS=true HAIBUN_OUTPUT_DEST=junit/basic.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_DESCRIPTION="gcx e2e tests" npm run e2e-basic
+                cd haibun
+                HAIBUN_ENVC="USERNAME=$(test_username),PASSWORD=$(test_password)" HAIBUN_O_WEBPLAYWRIGHT_HEADLESS=true HAIBUN_OUTPUT_DEST=junit/basic.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_DESCRIPTION="gcx e2e tests" npm run e2e-basic
 
           # - task: CmdLine@2
           #   displayName: 'Publish test result history'
