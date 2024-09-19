@@ -169,10 +169,8 @@ stages:
 ## checks: whether the pipeline connects to the app catalog and returns more information
 ############################################################
               - script: |
-                  m365 spo app get --appId "$App"
+                  m365 spo app get --id 980046CA-62E3-4AF9-9B7C-116C831847F8
                 displayName: Read App Catalog URL
-                env: 
-                  App: $(AppsID)
 
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
