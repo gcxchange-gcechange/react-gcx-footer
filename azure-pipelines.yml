@@ -3,30 +3,10 @@ trigger:
     include: 
       - '*'
 
-#resources:
-#  repositories:
-#  - repository: PrivilegedAccountManagement
-#    type: git
-#    name: 'gcx-zero-standing-privileges\gcx-zero-standing-privileges'
-
 variables:
    - group: certificateCredential
 
 stages:
-############################################################
-## Assign Privileges Stage
-############################################################
-#- stage: Assign_Privileges
-#  jobs:      
-#- stage: Assign_Privileges
-#  jobs:
-#  - template: assign-privileges.yml@PrivilegedAccountManagement  # Template reference
-#    parameters:
-#      requiredPrivilegesSpecFileRepoAlias: 'self'
-#      requiredPrivilegesSpecFilePath: $(System.DefaultWorkingDirectory)\gcx-zsp-sharepoint-demo\required-privileges.json
-#      zeroStandingPrivilegeFrameworkRepoAlias: 'PrivilegedAccountManagement'
-#      serviceConnectionName: 's-azdo-zerostandingprivilege-gcx-zero-standing-privilege-demo'
-
 ############################################################
 ## Build Stage
 ############################################################
@@ -157,7 +137,6 @@ stages:
   dependsOn:
     - Build
     - Test 
-#    - Assign_Privileges
   variables:
     SpPkgFilename: $[StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename']]
 
