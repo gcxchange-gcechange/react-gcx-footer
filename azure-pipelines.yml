@@ -1,239 +1,238 @@
 trigger:
-  branches:
-    include:
+  branches: 
+    include: 
       - '*'
 
 variables:
-  - group: certificateCredential
+   - group: certificateCredential
 
 stages:
-  ############################################################
-  ## Build Stage
-  ############################################################
+############################################################
+## Build Stage
+############################################################
 
-  - stage: Build
-    condition: false
-    dependsOn: []
-    jobs:
-      ############################################################
-      ## installs: npm dependencies
-      ############################################################
-      - job: build_package
-        displayName: SPFx build and packaging
-        steps:
-          - script: npm install
-            displayName: Install npm dependencies
+- stage: Build
+  dependsOn: []
+  jobs:
 
-          ############################################################
-          ## executes: gulp build
-          ############################################################
-          - task: gulp@0
-            displayName: SPFx build
-            inputs:
-              targets: build
+############################################################
+## installs: npm dependencies 
+############################################################
+    - job: build_package 
+      displayName: SPFx build and packaging
+      steps:
+        - script: npm install
+          displayName: Install npm dependencies 
+        
+############################################################
+## executes: gulp build
+############################################################
+        - task: gulp@0
+          displayName: SPFx build
+          inputs:
+            targets: build
 
-          ############################################################
-          ## executes: gulp bundle --ship
-          ############################################################
-          - task: gulp@0
-            displayName: SPFx bundle
-            inputs:
-              targets: bundle
-              arguments: --ship
+############################################################
+## executes: gulp bundle --ship 
+############################################################
+        - task: gulp@0
+          displayName: SPFx bundle 
+          inputs:
+            targets: bundle
+            arguments: --ship
 
-          ############################################################
-          ## executes: gulp package-solution --ship
-          ############################################################
-          - task: gulp@0
-            displayName: SPFx package solution
-            inputs:
-              targets: package-solution
-              arguments: --ship
+############################################################
+## executes: gulp package-solution --ship
+############################################################
+        - task: gulp@0
+          displayName: SPFx package solution 
+          inputs:
+            targets: package-solution 
+            arguments: --ship
 
-          ############################################################
-          ## evaluates: the name of the generated *.sppkg package
-          ############################################################
-          - script: |
-              CMD_GET_SPPKG_NAME=$(find . -name '*.sppkg' -exec basename {} \;)
-              echo "##vso[task.setvariable variable=SpPkgFilename;isOutput=true]${CMD_GET_SPPKG_NAME}"
-            displayName: Get generated *.sppkg filename
-            name: GetSharePointPackage
+############################################################
+## evaluates: the name of the generated *.sppkg package
+############################################################
+        - script: |
+            CMD_GET_SPPKG_NAME=$(find . -name '*.sppkg' -exec basename {} \;)
+            echo "##vso[task.setvariable variable=SpPkgFilename;isOutput=true]${CMD_GET_SPPKG_NAME}"
+          displayName: Get generated *.sppkg filename 
+          name: GetSharePointPackage
 
-          ############################################################
-          ## copies: *.sppkg as a build artifact
-          ############################################################
-          - task: CopyFiles@2
-            inputs:
-              sourceFolder: $(Build.Repository.LocalPath)/sharepoint/solution
-              contents: '**/*.sppkg'
-              targetFolder: $(Build.ArtifactStagingDirectory)
+############################################################
+## copies: *.sppkg as a build artifact 
+############################################################
+        - task: CopyFiles@2
+          inputs:
+            sourceFolder: $(Build.Repository.LocalPath)/sharepoint/solution
+            contents: '**/*.sppkg'
+            targetFolder: $(Build.ArtifactStagingDirectory)  
 
-          ############################################################
-          ## publishes: *.sppkg as a build artifact
-          ###########################################################
-          - task: PublishBuildArtifacts@1
-            displayName: Publish SharePoint Package (*.sppkg)
-            inputs:
-              pathToPublish: $(Build.ArtifactStagingDirectory)
-              artifactName: spfx-package
-              publishLocation: 'Container'
+############################################################
+## publishes: *.sppkg as a build artifact 
+###########################################################
+        - task: PublishBuildArtifacts@1
+          displayName: Publish SharePoint Package (*.sppkg)
+          inputs:
+            pathToPublish: $(Build.ArtifactStagingDirectory)
+            artifactName: spfx-package
+            publishLocation: 'Container'
 
-  ############################################################
-  ## Test Stage
-  ############################################################
+############################################################
+## Test Stage
+############################################################
 
-  - stage: Test
-    condition: false
-    dependsOn: []
-    jobs:
-      ############################################################
-      ## installs: npm dependencies
-      ############################################################
-      - job: run_tests
-        displayName: Install npm, haibun, and test dependencies
-        steps:
-          - script: npm install
-            displayName: Install npm dependencies
+- stage: Test
+  dependsOn: []
+  jobs:
 
-          ############################################################
-          ## executes: gulp build
-          ############################################################
-          - task: gulp@0
-            displayName: SPFx build
-            inputs:
-              targets: build
+############################################################
+## installs: npm dependencies 
+############################################################
+    - job: run_tests
+      displayName: Install npm, haibun, and test dependencies 
+      steps:
+        - script: npm install 
+          displayName: Install npm dependencies 
 
-          ############################################################
-          ## executes: tests
-          ############################################################
-          - script: npm run test
-            displayName: Run test scripts
-            continueOnError: true
+############################################################
+## executes: gulp build
+############################################################
+        - task: gulp@0
+          displayName: SPFx build
+          inputs:
+            targets: build
 
-          ############################################################
-          ## publishes: code coverage results to the pipeline run
-          ############################################################
-          # - task: PublishCodeCoverageResults@2
-          #   displayName: Publish Code Coverage Results
-          #   inputs:
-          #     codecoverageTool: cobertura
-          #     summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+############################################################
+## executes: tests
+############################################################
+        - script: npm run test
+          displayName: Run test scripts
+          continueOnError: true 
 
-          ############################################################
-          ## publishes: test results using junit tests to the pipeline run
-          ############################################################
-          - task: PublishTestResults@2
-            displayName: Publish Test Results
-            inputs:
-              testResultsFormat: JUnit
-              testResultsFiles: '**/junit.xml'
-              failTaskOnFailedTests: true
+############################################################
+## publishes: code coverage results to the pipeline run 
+############################################################
+        - task: PublishCodeCoverageResults@2
+          displayName: Publish Code Coverage Results 
+          inputs:
+            codecoverageTool: cobertura 
+            summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
 
-  - stage: E2E_test
-    condition: always()
-    jobs:
-      - job: e2etests
-        pool:
-          vmImage: 'ubuntu-latest'
+############################################################
+## publishes: test results using junit tests to the pipeline run
+############################################################
+        - task: PublishTestResults@2
+          displayName: Publish Test Results
+          inputs:
+            testResultsFormat: JUnit
+            testResultsFiles: '**/junit.xml'
+            failTaskOnFailedTests: true
 
-        steps:
-          - task: CmdLine@2
-            displayName: 'npm install'
-            continueOnError: false
-            inputs:
-              script: |
-                cd haibun
-                npm install
+############################################################
+## Dev Deployment Stage
+############################################################
 
-          - task: CmdLine@2
-            displayName: 'playwright deps'
-            continueOnError: false
-            inputs:
-              script: |
-                cd haibun
-                npx playwright install
+- stage: Deploy_Development 
+  dependsOn:
+    - Build
+    - Test 
+  variables:
+    SpPkgFilename: $[StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename']]
 
-          - task: CmdLine@2
-            displayName: 'make junit test directory'
-            continueOnError: false
-            inputs:
-              script: |
-                cd haibun
-                mkdir junit
+  jobs:
+    - deployment: deploy_dev_sppkg
+      displayName: Deploy to Dev Environment 
+      environment: Development 
+      strategy: 
+        runOnce:
+          deploy:
+            steps:
 
-          - task: CmdLine@2
-            displayName: 'Running basic e2e-basic tests'
-            continueOnError: true
-            inputs:
-              script: |
-                cd haibun
-                HAIBUN_ENVC="USERNAME=$(test_username),PASSWORD=$(test_password)" HAIBUN_O_WEBPLAYWRIGHT_HEADLESS=true HAIBUN_OUTPUT_DEST=junit/basic.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_DESCRIPTION="gcx e2e tests" npm run e2e-basic
+############################################################
+## installs: Office M365 CLI
+############################################################
+              - script: sudo npm install --global  @pnp/cli-microsoft365
+                displayName: Install OfficeM365 CLI
+ 
+############################################################
+## logs in: Office M365 CLI
+############################################################
+              - script: m365 login --authType certificate --certificateBase64Encoded "$CertificateID" --appId "$App" --tenant "$Tenant" --password "$PasswordID"
+                displayName: Login to OfficeM365
+                env:
+                  App: $(AppsID)
+                  Tenant: $(TenantsID)
+                  CertificateID: $(Credential)
+                  PasswordID: $(Password)
 
-          # - task: CmdLine@2
-          #   displayName: 'Publish test result history'
-          #   continueOnError: true
-          #   inputs:
-          #     script: |
-          #       npm run publish-history-azure
+############################################################
+## uploads: the *.sppkg package to the app-catalog
+############################################################
+              - script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --overwrite
+                displayName: Upload to SharePoint package to the App Catalog
 
-          # - task: CmdLine@2
-          #   displayName: 'Publish dashboard'
-          #   continueOnError: true
-          #   inputs:
-          #     script: |
-          #       pwd
-          #       ls -la
-          #       npm run publish-reviewer-azure
+############################################################
+## deploys: the *.sppkg package to the app-catalog
+############################################################
+              - script:  m365 spo app deploy --debug --verbose --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --skipFeatureDeployment
+                displayName: Deploy to SharePoint package to the App Catalog
 
-          - task: PublishTestResults@2
-            inputs:
-              testResultsFormat: 'JUnit'
-              testResultsFiles: 'junit/**.xml'
+- stage: E2E_test
+  dependsOn: 
+    - Deploy_Development
+  jobs:
+    - job: e2etests
+      pool:
+        vmImage: 'ubuntu-latest'
 
-  ############################################################
-  ## Dev Deployment Stage
-  ############################################################
+      steps:
+        - task: CmdLine@2
+          displayName: 'npm install'
+          inputs:
+            script: |
+              cd haibun
+              npm install
 
-  - stage: Deploy_Development
-    condition: false
-    dependsOn:
-      - Build
-      - Test
-      - E2E_test
-    variables:
-      SpPkgFilename: $[StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename']]
+        - task: CmdLine@2
+          displayName: 'playwright deps'
+          inputs:
+            script: |
+              cd haibun
+              npx playwright install
 
-    ############################################################
-    ## Deployment to M365 Sharepoint catalog
-    ############################################################
-    jobs:
-      - job: deploy
-        steps:
-          ############################################################
-          ## installs: Office M365 CLI
-          ############################################################
-          - script: sudo npm install --global  @pnp/cli-microsoft365
-            displayName: Install OfficeM365 CLI
+        - task: CmdLine@2
+          displayName: 'make junit test directory'
+          inputs:
+            script: |
+              cd haibun
+              mkdir junit
 
-          ############################################################
-          ## logs in: Office M365 CLI
-          ############################################################
-          - script: m365 login --authType certificate --certificateBase64Encoded "$CertificateID" --appId "$App" --tenant "$Tenant" --password "$PasswordID"
-            displayName: Login to OfficeM365
-            env:
-              App: $(AppsID)
-              Tenant: $(TenantsID)
-              CertificateID: $(Credential)
-              PasswordID: $(Password)
+        - task: CmdLine@2
+          displayName: 'Running e2e-basic tests'
+          continueOnError: true
+          inputs:
+            script: |
+              cd haibun
+              HAIBUN_ENVC="USERNAME=$(test_username),PASSWORD=$(test_password)" HAIBUN_O_WEBPLAYWRIGHT_HEADLESS=true HAIBUN_OUTPUT_DEST=junit/basic.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_DESCRIPTION="gcx e2e tests" npm run e2e-basic
 
-          ############################################################
-          ## uploads: the *.sppkg package to the app-catalog
-          ############################################################
-          - script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --overwrite
-            displayName: Upload to SharePoint package to the App Catalog
+        # - task: CmdLine@2
+        #   displayName: 'Publish test result history'
+        #   continueOnError: true
+        #   inputs:
+        #     script: |
+        #       npm run publish-history-azure
 
-          ############################################################
-          ## deploys: the *.sppkg package to the app-catalog
-          ############################################################
-          - script: m365 spo app deploy --debug --verbose --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope sitecollection --skipFeatureDeployment
-            displayName: Deploy to SharePoint package to the App Catalog
+        # - task: CmdLine@2
+        #   displayName: 'Publish dashboard'
+        #   continueOnError: true
+        #   inputs:
+        #     script: |
+        #       pwd
+        #       ls -la
+        #       npm run publish-reviewer-azure
+
+        - task: PublishTestResults@2
+          inputs:
+            testResultsFormat: 'JUnit'
+            testResultsFiles: 'junit/**.xml'
