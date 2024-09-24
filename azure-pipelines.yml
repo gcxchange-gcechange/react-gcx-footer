@@ -235,4 +235,4 @@ stages:
         - task: PublishTestResults@2
           inputs:
             testResultsFormat: 'JUnit'
-            testResultsFiles: 'junit/**.xml'
+            testResultsFiles: 'haibun/junit/**.xml'
