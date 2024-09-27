@@ -133,7 +133,7 @@ stages:
 ## Dev Deployment Stage
 ############################################################
 
-- stage: Deploy_Development 
+- stage: Dev_Deployment
   dependsOn:
     - Build
     - Test 
@@ -180,7 +180,7 @@ stages:
 
 - stage: E2E_test
   dependsOn: 
-    - Deploy_Development
+    - Dev_Deployment
   jobs:
     - job: e2etests
       pool:
