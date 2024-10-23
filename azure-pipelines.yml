@@ -90,12 +90,10 @@ stages:
 ## installs: npm dependencies 
 ############################################################
     - job: run_tests
-      displayName: Install npm, haibun, and test dependencies 
+      displayName: Install test dependencies 
       steps:
-        - checkout: spfx-testing
-
-        - script: cd spfx-testing && npm install
-          displayName: Locate the filepath and install dependencies from spfx-testing
+        - script: npm install
+          displayName: Install test dependencies
 
 ############################################################
 ## executes: gulp build
@@ -108,8 +106,8 @@ stages:
 ############################################################
 ## executes: tests
 ############################################################
-        - script: cd spfx-testing && npm run test
-          displayName: Run test scripts from spfx-testing 
+        - script: npm run test
+          displayName: Run test scripts
           continueOnError: true 
 
 ############################################################
