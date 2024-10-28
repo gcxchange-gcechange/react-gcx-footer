@@ -9,7 +9,8 @@
   "scripts": {
     "build": "gulp bundle",
     "clean": "gulp clean",
-    "test": "gulp test"
+    "test": "gulp test", 
+    "jest": "ts-jest"
   },
   "dependencies": {
     "@fluentui/react": "^7.199.1",
@@ -22,13 +23,10 @@
     "@microsoft/sp-webpart-base": "1.17.4",
     "@testing-library/jest-dom": "^6.6.2",
     "@testing-library/react": "^12.1.5",
-    "@types/jest": "^29.5.14",
-    "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "office-ui-fabric-react": "7.199.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "ts-jest": "^29.2.5",
     "tslib": "2.3.1"
   },
   "devDependencies": {
@@ -38,15 +36,21 @@
     "@microsoft/sp-build-web": "^1.17.4",
     "@microsoft/sp-module-interfaces": "1.17.4",
     "@rushstack/eslint-config": "2.5.1",
+    "@types/chai": "^5.0.0",
+    "@types/jest": "^29.5.14",
     "@types/react": "17.0.45",
     "@types/react-dom": "17.0.17",
     "@types/webpack-env": "1.15.2",
     "ajv": "6.12.5",
+    "chai": "^5.1.2",
     "eslint": "8.7.0",
     "eslint-plugin-react-hooks": "4.3.0",
     "gulp": "4.0.2",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
     "typescript": "4.5.5"
-  }, 
+  },
   "jest": {
     "verbose": true,
     "testEnvironment": "jest-environment-jsdom",
