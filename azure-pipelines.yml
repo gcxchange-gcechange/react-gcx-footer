@@ -174,13 +174,6 @@ stages:
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
-##              - script: 
-##                  az login --service-principal --username "$UserNameServicePrincipal" --password "$PasswordServicePrincipal" --tenant "$Tenant"
-##                displayName: 'Login to Azure'
-##                env:
-##                  UserNameServicePrincipal: $(UserNameService)
-##                  PasswordServicePrincipal: $(PasswordService)
-##                  Tenant: $(TenantsID)
 
               - task: AzureCLI@2
                 inputs:
@@ -189,9 +182,6 @@ stages:
                   scriptType: bash
                   inlineScript: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --overwrite
                 displayName: Upload to SharePoint package to the App Catalog
-
-              ##- script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --overwrite
-                ##displayName: Upload to SharePoint package to the App Catalog
 
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
