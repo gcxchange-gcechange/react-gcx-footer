@@ -177,8 +177,16 @@ stages:
 ##                  PasswordServicePrincipal: $(PasswordService)
 ##                  Tenant: $(TenantsID)
 
-              - script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --overwrite
+              - task: AzureCLI@2
+                inputs:
+                  azureSubscription: sharepoint_integration 
+                  scriptLocation: 'inlineScript'
+                  scriptType: bash
+                  inlineScript: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --overwrite
                 displayName: Upload to SharePoint package to the App Catalog
+
+              ##- script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --overwrite
+                ##displayName: Upload to SharePoint package to the App Catalog
 
 ############################################################
 ## deploys: the *.sppkg package to the app-catalog
