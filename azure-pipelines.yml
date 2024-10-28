@@ -169,6 +169,7 @@ stages:
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
+              - script: m365 login --authType delegated --username '$(SP_UserName)' --password '$(SP_Password)'
               - script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --overwrite
                 displayName: Upload to SharePoint package to the App Catalog
 
