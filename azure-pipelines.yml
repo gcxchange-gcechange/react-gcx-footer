@@ -139,8 +139,6 @@ stages:
     - Test 
   variables:
     SpPkgFilename: $[StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename']]
-    UserNameService: '$UserNameService'
-    PasswordService: '$PasswordService'
 
   jobs:
     - deployment: deploy_dev_sppkg
@@ -171,10 +169,12 @@ stages:
 ############################################################
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
-              - script: |
-                  echo "$(PasswordService)" | az login --service-principal -u "$(UserNameService)" -p @- --tenant "$Tenant"
+              - script: 
+                  az login --service-principal --username "$UserNameServicePrincipal" --password "$PasswordServicePrincipal" --tenant "$Tenant"
                 displayName: 'Login to Azure'
                 env:
+                  UserNameServicePrincipal: $(UserNameService)
+                  PasswordServicePrincipal: $(PasswordService)
                   Tenant: $(TenantsID)
 
               - script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --overwrite
