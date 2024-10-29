@@ -106,8 +106,8 @@ stages:
 ############################################################
 ## executes: tests
 ############################################################
-        - script: npm run test
-          displayName: Run test scripts
+        - script: npm run jest
+          displayName: Run unit test scripts
           continueOnError: true 
 
 ############################################################
