@@ -1,7 +1,7 @@
 trigger:
   branches: 
     include: 
-      - '*'
+      - main
 
 variables:
    - group: certificateCredential
@@ -175,12 +175,7 @@ stages:
 ## uploads: the *.sppkg package to the app-catalog
 ############################################################
 
-              - task: AzureCLI@2
-                inputs:
-                  azureSubscription: sharepoint_integration 
-                  scriptLocation: 'inlineScript'
-                  scriptType: bash
-                  inlineScript: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --overwrite
+              - script: m365 spo app add --debug --verbose -p '$(Pipeline.Workspace)/spfx-package/$(SpPkgFilename)' --appCatalogUrl https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --overwrite
                 displayName: Upload to SharePoint package to the App Catalog
 
 ############################################################
