@@ -9,7 +9,7 @@
   "scripts": {
     "build": "gulp bundle",
     "clean": "gulp clean",
-    "test": "gulp test",
+    "test": "jest --junit",
     "jest": "jest",
     "jest-watch": "jest --watch"
   },
