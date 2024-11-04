@@ -21,7 +21,7 @@ stages:
     - job: build_package 
       displayName: SPFx build and packaging
       steps:
-        - script: npm install
+        - script: npm ci
           displayName: Install npm dependencies 
         
 ############################################################
@@ -92,12 +92,9 @@ stages:
     - job: run_tests
       displayName: Install test dependencies 
       steps:
-        - script: npm install
+        - script: npm ci
           displayName: Install test dependencies
           
-        - script: npm install --save-dev jest-junit
-          displayName: Install jest-junit
-
 ############################################################
 ## executes: gulp build
 ############################################################
@@ -109,7 +106,7 @@ stages:
 ############################################################
 ## executes: tests
 ############################################################
-        - script: npm run jest
+        - script: npm run jest:ci
           displayName: Run unit test scripts
           continueOnError: true 
 
@@ -197,11 +194,11 @@ stages:
 
       steps:
         - task: CmdLine@2
-          displayName: 'npm install'
+          displayName: 'npm ci'
           inputs:
             script: |
               cd haibun
-              npm install
+              npm ci
 
         - task: CmdLine@2
           displayName: 'playwright deps'
