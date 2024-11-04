@@ -22,5 +22,12 @@ module.exports = {
   moduleNameMapper: {
     "\\.(css|scss|sass)$": "identity-obj-proxy",
     "^FooterWebpartWebPartStrings$": `<rootDir>/${localizedResourcesPath.replace('{locale}', 'en-us')}`
-  }
+  }, 
+  reporters: [
+    'default', 
+    ['jest-junit', {
+      outputDirectory: './test-results',
+      outputName: 'junit.xml'
+    }]
+  ]
 };
