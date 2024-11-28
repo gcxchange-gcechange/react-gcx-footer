@@ -25,8 +25,12 @@ stages:
           displayName: Install npm dependencies 
         
 ############################################################
-## executes: gulp build
+## executes: gulp build and clean
 ############################################################
+        - task: gulp@0
+          displayName: SPFx cleanc
+          inputs:
+            targets: clean
         - task: gulp@0
           displayName: SPFx build
           inputs:
