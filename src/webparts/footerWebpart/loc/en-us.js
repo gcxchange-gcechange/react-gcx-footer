@@ -8,7 +8,7 @@ define([], function() {
     "SiteLinksTitle": "MORE SITE SEEING",
     "SupportLinksTitle": "REACH OUT?",
     "LinkAboutUs": "About us",
-    "LinkTerms": "Terms and conditions of use",
+    "LinkTerms": "GCXchange Terms and Conditions",
     "LinkPrivacy": "Privacy policy",
     "LinkSupport": "Support",
     "URLAboutUs": "https://gcxgce.sharepoint.com/SitePages/About-us.aspx",
@@ -22,6 +22,9 @@ define([], function() {
     "URLGCXchangeDirectory": "https://gcxgce.sharepoint.com/SitePages/GCXchangeDirectory.aspx",
     "LinkGCXchangeDirectory":"GCXchange Directory",
     "GovImage":"Government of Canada",
-    "CanadaImage":"Symbol of the Government of Canada",  
+    "CanadaImage":"Symbol of the Government of Canada",
+    "ProtectedTermsURL": "https://gcxgce.sharepoint.com/SitePages/Terms-and-Conditions-pro-b.aspx",
+    "ProtectedTerms": "Protected A/B Terms and Conditions",
+
   }
 });

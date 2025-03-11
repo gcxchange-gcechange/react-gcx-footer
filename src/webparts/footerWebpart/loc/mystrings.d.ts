@@ -23,6 +23,8 @@ declare interface IFooterWebpartWebPartStrings {
   URLGCXchangeDirectory:string;
   GovImage:string;
   CanadaImage:string;
+  ProtectedTerms: string;
+  ProtectedTermsURL: string;
 }
 
 declare module 'FooterWebpartWebPartStrings' {

@@ -8,7 +8,7 @@ define([], function() {
     "SiteLinksTitle": "VOIR LE RESTE DU SITE",
     "SupportLinksTitle": "COMMUNIQUEZ AVEC VOS COLLÈGUES",
     "LinkAboutUs": "À propos de nous",
-    "LinkTerms": "Conditions d'utilisation",
+    "LinkTerms": "Les conditions d' utilisation de GCÉchange",
     "LinkPrivacy": "Politique de confidentialité",
     "LinkSupport": "Soutien",
     "URLAboutUs": "https://gcxgce.sharepoint.com/SitePages/fr/About-us.aspx",
@@ -20,8 +20,10 @@ define([], function() {
     "LabelCampus":"Plateforme d'apprentissage",
     "URLPedia": "https://www.gcpedia.gc.ca/wiki/Main_Page?setlang=fr&uselang=fr",
     "URLGCXchangeDirectory": "https://gcxgce.sharepoint.com/SitePages/fr/GCXchangeDirectory.aspx",
-    "LinkGCXchangeDirectory":"Annuaire GCÉchange",    
+    "LinkGCXchangeDirectory":"Annuaire GCÉchange",
     "GovImage":"Gouvernement du Canada",
     "CanadaImage":"Symbole du gouvernement du Canada",
+    "ProtectedTermsURL": "https://gcxgce.sharepoint.com/SitePages/fr/Terms-and-Conditions-pro-b.aspx",
+    "ProtectedTerms": "Les conditions d'utilisation de Pro A/B",
   }
 });
