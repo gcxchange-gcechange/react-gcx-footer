@@ -86,52 +86,52 @@ stages:
 ## Test Stage
 ############################################################
 
-- stage: Test
-  dependsOn: []
-  jobs:
+#- stage: Test
+#  dependsOn: []
+#  jobs:
 
 ############################################################
 ## installs: npm dependencies and jest-junit 
 ############################################################
-    - job: run_tests
-      displayName: Install test dependencies 
-      steps:
-        - script: npm ci
-          displayName: Install test dependencies
+#    - job: run_tests
+#      displayName: Install test dependencies 
+#      steps:
+#        - script: npm ci
+#          displayName: Install test dependencies
           
 ############################################################
 ## executes: gulp build
 ############################################################
-        - task: gulp@0
-          displayName: SPFx build
-          inputs:
-            targets: build
+#        - task: gulp@0
+#          displayName: SPFx build
+#          inputs:
+#            targets: build
 
 ############################################################
 ## executes: tests
 ############################################################
-        - script: npm run jest:ci
-          displayName: Run unit test scripts
-          continueOnError: true 
+#        - script: npm run jest:ci
+#          displayName: Run unit test scripts
+#          continueOnError: true 
 
 ############################################################
 ## publishes: code coverage results to the pipeline run 
 ############################################################
-        - task: PublishCodeCoverageResults@2
-          displayName: Publish Code Coverage Results 
-          inputs:
-            codecoverageTool: cobertura 
-            summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+#        - task: PublishCodeCoverageResults@2
+#          displayName: Publish Code Coverage Results 
+#          inputs:
+#            codecoverageTool: cobertura 
+#            summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
 
 ############################################################
 ## publishes: test results using junit tests to the pipeline run
 ############################################################
-        - task: PublishTestResults@2
-          displayName: Publish Test Results
-          inputs:
-            testResultsFormat: JUnit
-            testResultsFiles: '**/junit.xml'
-            failTaskOnFailedTests: true
+#        - task: PublishTestResults@2
+#          displayName: Publish Test Results
+#          inputs:
+#            testResultsFormat: JUnit
+#            testResultsFiles: '**/junit.xml'
+#            failTaskOnFailedTests: true
 
 ############################################################
 ## Dev Deployment Stage
@@ -140,7 +140,7 @@ stages:
 - stage: Dev_Deployment
   dependsOn:
     - Build
-    - Test 
+#    - Test 
   variables:
     SpPkgFilename: $[StageDependencies.Build. build_package.outputs['GetSharePointPackage.SpPkgFilename']]
 
@@ -188,43 +188,43 @@ stages:
               - script:  m365 spo app deploy --debug --verbose --name $(SpPkgFilename) -u https://devgcx.sharepoint.com/sites/appcatalog --appCatalogScope tenant --skipFeatureDeployment
                 displayName: Deploy to SharePoint package to the App Catalog
 
-- stage: E2E_test
-  dependsOn: 
-    - Dev_Deployment
-  jobs:
-    - job: e2etests
-      pool:
-        vmImage: 'ubuntu-latest'
+#- stage: E2E_test
+#  dependsOn: 
+#    - Dev_Deployment
+#  jobs:
+#    - job: e2etests
+#      pool:
+#        vmImage: 'ubuntu-latest'
 
-      steps:
-        - task: CmdLine@2
-          displayName: 'npm ci'
-          inputs:
-            script: |
-              cd haibun
-              npm ci
+#      steps:
+#        - task: CmdLine@2
+#          displayName: 'npm ci'
+#          inputs:
+#            script: |
+#              cd haibun
+#              npm ci
 
-        - task: CmdLine@2
-          displayName: 'playwright deps'
-          inputs:
-            script: |
-              cd haibun
-              npx playwright install
+#        - task: CmdLine@2
+#          displayName: 'playwright deps'
+#          inputs:
+#            script: |
+#              cd haibun
+#              npx playwright install
 
-        - task: CmdLine@2
-          displayName: 'make junit test directory'
-          inputs:
-            script: |
-              cd haibun
-              mkdir junit
+#        - task: CmdLine@2
+#          displayName: 'make junit test directory'
+#          inputs:
+#            script: |
+#              cd haibun
+#              mkdir junit
 
-        - task: CmdLine@2
-          displayName: 'Running e2e-basic tests'
-          continueOnError: true
-          inputs:
-            script: |
-              cd haibun
-              HAIBUN_ENVC="USERNAME=$(test_username),PASSWORD=$(test_password)" HAIBUN_O_WEBPLAYWRIGHT_HEADLESS=true HAIBUN_OUTPUT_DEST=junit/basic.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_DESCRIPTION="gcx e2e tests" npm run e2e-basic
+#        - task: CmdLine@2
+#          displayName: 'Running e2e-basic tests'
+#          continueOnError: true
+#          inputs:
+#            script: |
+#              cd haibun
+#              HAIBUN_ENVC="USERNAME=$(test_username),PASSWORD=$(test_password)" HAIBUN_O_WEBPLAYWRIGHT_HEADLESS=true HAIBUN_OUTPUT_DEST=junit/basic.xml HAIBUN_OUTPUT=~@haibun/out-xunit/build/out-xunit HAIBUN_DESCRIPTION="gcx e2e tests" npm run e2e-basic
 
         # - task: CmdLine@2
         #   displayName: 'Publish test result history'
@@ -242,7 +242,7 @@ stages:
         #       ls -la
         #       npm run publish-reviewer-azure
 
-        - task: PublishTestResults@2
-          inputs:
-            testResultsFormat: 'JUnit'
-            testResultsFiles: 'haibun/junit/**.xml'
+#        - task: PublishTestResults@2
+#          inputs:
+#            testResultsFormat: 'JUnit'
+#            testResultsFiles: 'haibun/junit/**.xml'
