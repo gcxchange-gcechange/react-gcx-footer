@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": ">=16.13.0 <17.0.0"
+    "node": ">=22.14.0 < 23.0.0"
   },
   "main": "lib/index.js",
   "scripts": {
@@ -15,38 +15,41 @@
     "jest-watch": "jest --watch"
   },
   "dependencies": {
-    "@fluentui/react": "^7.199.1",
-    "@microsoft/sp-adaptive-card-extension-base": "1.17.4",
-    "@microsoft/sp-core-library": "1.17.4",
-    "@microsoft/sp-http": "1.17.4",
-    "@microsoft/sp-lodash-subset": "1.17.4",
-    "@microsoft/sp-office-ui-fabric-core": "1.17.4",
-    "@microsoft/sp-property-pane": "1.17.4",
-    "@microsoft/sp-webpart-base": "1.17.4",
+    "@fluentui/react": "8.106.4",
+    "@microsoft/sp-adaptive-card-extension-base": "1.21.1",
+    "@microsoft/sp-core-library": "1.21.1",
+    "@microsoft/sp-http": "1.21.1",
+    "@microsoft/sp-lodash-subset": "1.21.1",
+    "@microsoft/sp-office-ui-fabric-core": "1.21.1",
+    "@microsoft/sp-property-pane": "1.21.1",
+    "@microsoft/sp-webpart-base": "1.21.1",
     "@testing-library/jest-dom": "^6.6.2",
-    "@testing-library/react": "^12.1.5",
-    "@types/webpack-env": "^1.18.5",
-    "eslint-plugin-react-hooks": "^5.0.0",
+    "@testing-library/react": "^12.1.5",  
     "jest-environment-jsdom": "^29.7.0",
-    "office-ui-fabric-react": "7.199.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "tslib": "2.3.1"
   },
   "devDependencies": {
-    "@microsoft/eslint-config-spfx": "1.17.4",
-    "@microsoft/eslint-plugin-spfx": "1.17.4",
-    "@microsoft/rush-stack-compiler-4.5": "0.5.0",
-    "@microsoft/sp-build-web": "^1.17.4",
-    "@microsoft/sp-module-interfaces": "1.17.4",
-    "@rushstack/eslint-config": "2.5.1",
+    "@microsoft/eslint-config-spfx": "1.21.1",
+    "@microsoft/eslint-plugin-spfx": "1.21.1",
+    "@microsoft/rush-stack-compiler-5.3": "0.1.0",
+    "@microsoft/sp-build-web": "1.21.1 ",
+    "@microsoft/sp-module-interfaces": "1.21.1",
+    "@rushstack/eslint-config": "4.0.1",
     "@types/chai": "^5.0.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^18.11.14",
+    "@types/react-dom": "17.0.17",
+    "@types/webpack-env": "~1.15.2",
     "identity-obj-proxy": "^3.0.0",
+    "ajv": "^6.12.5",
+    "eslint": "8.57.1",
+    "eslint-plugin-react-hooks": "4.3.0",
     "jest": "^29.7.0",
     "jest-junit": "^16.0.0",
     "ts-jest": "^29.2.5",
-    "typescript": "4.5.5"
+    "gulp": "4.0.2",
+    "typescript": "5.3.3"
   }
 }
