@@ -1,10 +1,8 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-
 
 import * as React from 'react';
 import styles from './FooterWebpart.module.scss'
 import { IFooterWebpartProps } from './IFooterWebpartProps';
-import { Image, ImageFit, IImageProps } from 'office-ui-fabric-react';
+import { Image, ImageFit, IImageProps } from "@fluentui/react";
 
 
 import { SelectLanguage } from './SelectLanguage';
@@ -14,7 +12,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
 
   public strings = SelectLanguage(this.props.prefLang);
 
-  public componentDidUpdate = async (prevProps: IFooterWebpartProps) => {
+  public componentDidUpdate = async (prevProps: IFooterWebpartProps): Promise<void> => {
     if (prevProps.prefLang !== this.props.prefLang) {
       this.strings = SelectLanguage(this.props.prefLang);
       await this.props.updateWebPart();

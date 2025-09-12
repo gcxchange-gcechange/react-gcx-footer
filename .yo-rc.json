@@ -1,16 +1,20 @@
 {
   "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
     "isCreatingSolution": true,
-    "nodeVersion": "16.14.0",
-    "environment": "spo",
-    "version": "1.17.4",
+    "nodeVersion": "22.19.0",
     "sdksVersions": {
       "@microsoft/microsoft-graph-client": "3.0.2",
-      "@microsoft/teams-js": "2.9.1"
+      "@microsoft/teams-js": "2.24.0"
     },
+    "version": "1.21.1",
     "libraryName": "footer-webpart",
     "libraryId": "980046ca-62e3-4af9-9b7c-116c831847f8",
+    "environment": "spo",
     "packageManager": "npm",
+    "solutionName": "react-gcx-footer",
+    "solutionShortDescription": "react-gcx-footer description",
+    "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "componentType": "webpart"
   }
