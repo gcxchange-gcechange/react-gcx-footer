@@ -63,7 +63,6 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
                   <h3 className={ styles.footerHeadLabel } id="more-site-seeing-heading">{this.strings.SiteLinksTitle}</h3>
                   <ul className={ styles.footerList }>
                     <li><a href={`${this.strings.URLIntranet}`} target="_blank" rel="noreferrer">GCintranet</a></li>
-                    <li><a href="https://gcconnex.gc.ca/" target="_blank" rel="noreferrer">GCconnex</a></li>
                     <li><a href={`${this.strings.URLCampus}`} target="_blank" rel="noreferrer">{this.strings.LabelCampus}</a></li>
                     <li><a href={`${this.strings.URLPedia}`} target="_blank" rel="noreferrer">GCpedia</a></li>
                     <li><a href="https://gccollab.ca/" target="_blank" rel="noreferrer">GCcollab</a></li>
