@@ -25,5 +25,7 @@ define([], function() {
     "CanadaImage":"Symbole du gouvernement du Canada",
     "ProtectedTermsURL": "https://gcxgce.sharepoint.com/SitePages/fr/Terms-and-Conditions-pro-b.aspx",
     "ProtectedTerms": "Les conditions d'utilisation de Pro A/B",
+    "LinkAccessibility": "Accessibilité",
+    "URLAccessibility": "https://gcxgce.sharepoint.com/sites/Accessibility/SitePages/fr/Home.aspx"
   }
 });

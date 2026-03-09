@@ -25,6 +25,7 @@ define([], function() {
     "CanadaImage":"Symbol of the Government of Canada",
     "ProtectedTermsURL": "https://gcxgce.sharepoint.com/SitePages/Terms-and-Conditions-pro-b.aspx",
     "ProtectedTerms": "Protected A/B Terms and Conditions",
-
+    "LinkAccessibility": "Accessibility",
+    "URLAccessibility": "https://gcxgce.sharepoint.com/sites/Accessibility/SitePages/Home.aspx"
   }
 });
