@@ -25,6 +25,8 @@ declare interface IFooterWebpartWebPartStrings {
   CanadaImage:string;
   ProtectedTerms: string;
   ProtectedTermsURL: string;
+  LinkAccessibility: string;
+  URLAccessibility: string;
 }
 
 declare module 'FooterWebpartWebPartStrings' {
