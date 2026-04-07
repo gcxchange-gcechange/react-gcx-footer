@@ -15,7 +15,7 @@ define([], function() {
     "URLTerms": "https://gcxgce.sharepoint.com/SitePages/fr/Terms-and-Conditions.aspx",
     "URLPrivacy": "https://gcxgce.sharepoint.com/SitePages/fr/Terms-and-Conditions.aspx#%C3%A9nonc%C3%A9-de-confidentialit%C3%A9",
     "URLSupport": "https://gcxgce.sharepoint.com/sites/Support/SitePages/fr/Home.aspx",
-    "URLIntranet": "https://intranet.canada.ca/index-fra.asp",
+    "URLIntranet": "https://gcxgce.sharepoint.com/sites/GCIntranet/SitePages/fr/Accueil.aspx",
     "URLCampus": "https://www.csps-efpc.gc.ca/gccampus/index-fra.aspx",
     "LabelCampus":"Plateforme d'apprentissage",
     "URLPedia": "https://www.gcpedia.gc.ca/wiki/Main_Page?setlang=fr&uselang=fr",
