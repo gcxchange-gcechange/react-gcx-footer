@@ -1,8 +1,3 @@
-# haibun e2e
-capture
-failures.*.json
-junit
-
 # Logs
 logs
 *.log
@@ -14,8 +9,12 @@ node_modules
 # Build generated files
 dist
 lib
-solution
+lib-dts
+lib-commonjs
+lib-esm
+jest-output
 release
+solution
 temp
 *.sppkg
 .heft
