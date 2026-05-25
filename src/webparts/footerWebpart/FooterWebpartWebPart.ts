@@ -23,7 +23,7 @@ export interface IFooterWebpartWebPartProps {
 }
 
 export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterWebpartWebPartProps> {
-  private strings:IFooterWebpartWebPartStrings;
+  private strings:IFooterWebpartWebPartStrings = SelectLanguage(this.properties.prefLang);
   protected async onInit(): Promise<void> {
     this.strings=SelectLanguage(this.properties.prefLang);
   }
