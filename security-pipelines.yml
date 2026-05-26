@@ -12,7 +12,7 @@ resources:
     - repository: pipeline-templates
       type: github
       name: gcxchange-gcechange/security-pipeline
-      ref: refs/heads/main
+      ref: refs/heads/master
       endpoint: 'GCExchange (3)'
 
 pool:
