@@ -5,7 +5,7 @@ pr:
   branches:
     include:
       - main
-      - master
+      - master 
 
 resources:
   repositories:
@@ -19,4 +19,4 @@ pool:
   vmImage: ubuntu-latest
 
 extends:
-  template: frontend-scan.yml@pipeline-templates
+  template: frontend-template.yml@pipeline-templates
