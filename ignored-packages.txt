@@ -1,0 +1,6 @@
+@microsoft/sp-adaptive-card-extension-base
+adaptivecards
+fast-uri
+picomatch
+swiper
+validator
