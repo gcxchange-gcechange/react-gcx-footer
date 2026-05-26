@@ -13,7 +13,7 @@ resources:
       type: github
       name: gcxchange-gcechange/security-pipeline
       ref: refs/heads/main
-      endpoint: GCExchange (3)
+      endpoint: 'GCExchange (3)'
 
 pool:
   vmImage: ubuntu-latest
