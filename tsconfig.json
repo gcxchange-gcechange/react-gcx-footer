@@ -1,12 +1,14 @@
 {
 	"extends": "./node_modules/@microsoft/spfx-web-build-rig/profiles/default/tsconfig-base.json",
 	"compilerOptions": {
+		"allowJs": true,
 		"lib": [
 		"es5",
 		"dom",
 		"es2015",
 		"es2017"
     	],
+		"types": ["webpack-env", "jest"]
 	},
 
 }
