@@ -12,33 +12,33 @@
   }
 
   .row {
-    @include ms-Grid-row;
-    @include ms-fontColor-white;
+    // @include ms-Grid-row;
+    // @include ms-fontColor-white;
     background-color: rgb(0, 120, 212);
   }
 
-  .column {
-    @include ms-Grid-col;
-    @include ms-lg10;
-    @include ms-xl8;
-    @include ms-xlPush2;
-    @include ms-lgPush1;
-  }
+  // .column {
+  //   @include ms-Grid-col;
+  //   @include ms-lg10;
+  //   @include ms-xl8;
+  //   @include ms-xlPush2;
+  //   @include ms-lgPush1;
+  // }
 
-  .title {
-    @include ms-font-xl;
-    @include ms-fontColor-white;
-  }
+  // .title {
+  //   @include ms-font-xl;
+  //   @include ms-fontColor-white;
+  // }
 
-  .subTitle {
-    @include ms-font-l;
-    @include ms-fontColor-white;
-  }
+  // .subTitle {
+  //   @include ms-font-l;
+  //   @include ms-fontColor-white;
+  // }
 
-  .description {
-    @include ms-font-l;
-    @include ms-fontColor-white;
-  }
+  // .description {
+  //   @include ms-font-l;
+  //   @include ms-fontColor-white;
+  // }
 
   .fipImg {
     float: right;

@@ -9,7 +9,6 @@ import {
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
-//import * as strings from 'FooterWebpartWebPartStrings';
 import FooterWebpart from './components/FooterWebpart';
 import { IFooterWebpartProps } from './components/IFooterWebpartProps';
 import { SelectLanguage } from './components/SelectLanguage';
@@ -23,9 +22,11 @@ export interface IFooterWebpartWebPartProps {
 }
 
 export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterWebpartWebPartProps> {
-  private strings:IFooterWebpartWebPartStrings;
+
+  private strings!: IFooterWebpartWebPartStrings;
+
   protected async onInit(): Promise<void> {
-    this.strings=SelectLanguage(this.properties.prefLang);
+    this.strings = SelectLanguage(this.properties.prefLang);
   }
   public updateWebPart= async () => {
     this.context.propertyPane.refresh();
