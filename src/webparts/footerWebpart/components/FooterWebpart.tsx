@@ -8,7 +8,7 @@ import { Image, ImageFit, IImageProps } from "@fluentui/react";
 import { SelectLanguage } from './SelectLanguage';
 
 
-export default class FooterWebpart extends React.Component<IFooterWebpartProps > {
+export default class FooterWebpart extends React.Component<IFooterWebpartProps> {
 
   public strings = SelectLanguage(this.props.prefLang);
 
@@ -27,13 +27,13 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps >
       buttonLink
     } = this.props;
     const fip1: IImageProps = {
-      src: require("../../../../assets/sig-en.svg"),
+      src: "../../../../assets/sig-en.svg",
       imageFit: ImageFit.contain,
       width: 300,
       height: 150,
     };
     const fip2: IImageProps = {
-      src: require("../../../../assets/wmms.svg"),
+      src: "../../../../assets/wmms.svg",
       imageFit: ImageFit.contain,
       width: 180,
       height: 140,
