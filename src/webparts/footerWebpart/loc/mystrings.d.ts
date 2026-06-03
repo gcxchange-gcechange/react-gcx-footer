@@ -3,9 +3,9 @@ declare interface IFooterWebpartWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
-  AboutUsTitle: string;
-  SiteLinksTitle: string;
-  SupportLinksTitle: string;
+  //AboutUsTitle: string;
+  //SiteLinksTitle: string;
+  //SupportLinksTitle: string;
   WantToStayInTheLoopLinksTitle: string;
   LinkAboutUs: string;
   LinkTerms: string;
@@ -27,6 +27,18 @@ declare interface IFooterWebpartWebPartStrings {
   ProtectedTermsURL: string;
   LinkAccessibility: string;
   URLAccessibility: string;
+  GCXchangeColumnTitle:string;
+  ExploreColumnTitle: string;
+  SupportColumnTitle:string;
+  ResourcesColumnTitle: string;
+  LinkCommunities:string;
+  URLCommunities:string;
+  LinkCareerMarketplace: string;
+  URLCareerMarketplace: string;
+  FAQLink: string;
+  URLFAQ: string;
+  AskMeAnythingLink: string;
+  URLAskMeAnything: string;
 }
 
 declare module 'FooterWebpartWebPartStrings' {
