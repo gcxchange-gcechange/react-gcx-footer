@@ -2,10 +2,9 @@
 import * as React from 'react';
 import styles from './FooterWebpart.module.scss'
 import { IFooterWebpartProps } from './IFooterWebpartProps';
-import { Image, ImageFit, IImageProps } from "@fluentui/react";
-
-
+import { Image, ImageFit, IImageProps} from "@fluentui/react";
 import { SelectLanguage } from './SelectLanguage';
+ 
 
 
 export default class FooterWebpart extends React.Component<IFooterWebpartProps> {
@@ -78,7 +77,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                     </ul>
                   </section>
                 </div>
-                 <div className={isButtonPropertiesAvailable ? "ms-Grid-col ms-sm12 ms-lg2" : "ms-Grid-col ms-sm12 ms-lg3"}>
+                 <div className={"ms-Grid-col ms-sm12 ms-lg3"}>
                  <section aria-labelledby="resources-heading">
                     <h3 className={ styles.footerHeadLabel } id="resources-heading">{this.strings.ResourcesColumnTitle}</h3>
                     <ul className={ styles.footerList }>
@@ -91,7 +90,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                   </section>
                 </div>
                 {isButtonPropertiesAvailable && (
-                  <div className="ms-Grid-col ms-sm12 ms-lg3">
+                  <div className="ms-Grid-col ms-sm12 ms-lg2">
                   <section aria-labelledby="want-to-stay-in-the-loop">
                       <h3 className={ styles.footerHeadLabel } id="want-to-stay-in-the-loop">{wantToStayInTheLoopTitle}</h3>
                       <ul className={ styles.button }>

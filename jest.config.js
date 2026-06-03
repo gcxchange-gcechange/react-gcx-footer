@@ -19,8 +19,18 @@ module.exports = {
     "**/src/**/*.test.+(ts|tsx|js)"
   ],
 
+  testPathIgnorePatterns: [
+    "<rootDir>/lib/",
+    "<rootDir>/node_modules/"
+  ],
+
+  transformIgnorePatterns: [
+    "<rootDir>/lib/"
+  ],
+
   moduleNameMapper: {
     "\\.(css|scss|sass)$": "identity-obj-proxy",
+    "\\.svg$": "<rootDir>/jest/svgMock.js",
     "^FooterWebpartWebPartStrings$": `<rootDir>/${localizedResourcesPath.replace('{locale}', 'en-us')}`
   }, 
   reporters: [
