@@ -5,6 +5,7 @@
   .container {
     max-width: 100%;
   }
+
   h2{
       text-align: left;
       color: #fff;
@@ -53,11 +54,16 @@
 
   .footerList {
     list-style: none;
+
     padding: 0;
     color: white;
     font-size: 18px;
     a {
       color: white !important;
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: underline;
     }
   }
 
