@@ -2,7 +2,7 @@
 import * as React from 'react';
 import styles from './FooterWebpart.module.scss'
 import { IFooterWebpartProps } from './IFooterWebpartProps';
-import { Image, ImageFit, IImageProps} from "@fluentui/react";
+import { Image, ImageFit, IImageProps, Stack, StackItem, IStackTokens} from "@fluentui/react";
 import { SelectLanguage } from './SelectLanguage';
  
 
@@ -40,44 +40,50 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
 
     const isButtonPropertiesAvailable = buttonText && buttonLink;
 
-    return (
+    const customSpacingStackTokens: IStackTokens = {
+      childrenGap: '88'
+    };
+
+      return (
       <footer className={styles.footerWebpart} role="contentinfo">
         <div className={styles.container}>
           <div className={styles.row}>
-            <div className="ms-Grid">
-              <div className="ms-Grid-row">
-                <div className={isButtonPropertiesAvailable ? "ms-Grid-col ms-sm12 ms-lg2" : "ms-Grid-col ms-sm12 ms-lg3"}>
-                  <section aria-labelledby="gcxchange-heading">
-                    <h3 className={ styles.footerHeadLabel } id="gcxchange-heading">{this.strings.GCXchangeColumnTitle}</h3>
-                    <ul className={ styles.footerList }>
-                      <li><a href={`${this.strings.URLAboutUs}`} target="_blank" rel="noreferrer">{this.strings.LinkAboutUs}</a></li>
-                      <li><a href={`${this.strings.URLTerms}`}>{this.strings.LinkTerms}</a></li>
-                      <li><a href={`${this.strings.URLPrivacy}`}>{this.strings.LinkPrivacy}</a></li>
-                      <li><a href={`${this.strings.URLAccessibility}`}>{this.strings.LinkAccessibility}</a></li>
-                    </ul>
-                  </section>
-                </div>
-                <div className={isButtonPropertiesAvailable ? "ms-Grid-col ms-sm12 ms-lg2" : "ms-Grid-col ms-sm12 ms-lg3"}>
+            <Stack horizontal wrap tokens={customSpacingStackTokens}>
+              <StackItem grow={false} className={styles.footerColumn}>
+                <section aria-labelledby="gcxchange-heading">
+                  <h3 className={ styles.footerHeadLabel } id="gcxchange-heading">{this.strings.GCXchangeColumnTitle}</h3>
+                  <ul className={ styles.footerList }>
+                    <li><a href={`${this.strings.URLAboutUs}`} target="_blank" rel="noreferrer">{this.strings.LinkAboutUs}</a></li>
+                    <li><a href={`${this.strings.URLTerms}`}>{this.strings.LinkTerms}</a></li>
+                    <li><a href={`${this.strings.URLPrivacy}`}>{this.strings.LinkPrivacy}</a></li>
+                    <li><a href={`${this.strings.URLAccessibility}`}>{this.strings.LinkAccessibility}</a></li>
+                  </ul>
+                </section>
+              </StackItem>
+             
+              <StackItem grow={false} className={styles.footerColumn}>
                 <section aria-labelledby="explore-heading">
                   <h3 className={ styles.footerHeadLabel } id="explore-heading">{this.strings.ExploreColumnTitle}</h3>
                   <ul className={ styles.footerList }>
                     <li><a href={`${this.strings.URLCommunities}`} target="_blank" rel="noreferrer">{this.strings.LinkCommunities}</a></li>
                     <li><a href={`${this.strings.URLCareerMarketplace}`} target="_blank" rel="noreferrer">{this.strings.LinkCareerMarketplace}</a></li>
                   </ul>
-                  </section>
-                </div>
-                <div className="ms-Grid-col ms-sm12 ms-lg3">
-                 <section aria-labelledby="support-heading">
-                    <h3 className={ styles.footerHeadLabel } id="support-heading">{this.strings.SupportColumnTitle}</h3>
-                    <ul className={ styles.footerList }>
-                      <li><a href={`${this.strings.URLSupport}`} target="_blank" rel="noreferrer">{this.strings.LinkSupport}</a></li>
-                      <li><a href={`${this.strings.URLFAQ}`} target="_blank" rel="noreferrer">{this.strings.FAQLink}</a></li>
-                      <li><a href={`${this.strings.URLGCXchangeDirectory}`}  target="_blank" rel="noreferrer">{this.strings.LinkGCXchangeDirectory}</a></li>
-                      <li><a href={`${this.strings.AskMeAnythingLink}`} target="_blank" rel="noreferrer">{this.strings.AskMeAnythingLink}</a></li>
-                    </ul>
-                  </section>
-                </div>
-                 <div className={"ms-Grid-col ms-sm12 ms-lg3"}>
+                </section>
+              </StackItem>
+              
+              <StackItem grow={false} className={styles.footerColumn}>
+                <section aria-labelledby="support-heading">
+                  <h3 className={ styles.footerHeadLabel } id="support-heading">{this.strings.SupportColumnTitle}</h3>
+                  <ul className={ styles.footerList }>
+                    <li><a href={`${this.strings.URLSupport}`} target="_blank" rel="noreferrer">{this.strings.LinkSupport}</a></li>
+                    <li><a href={`${this.strings.URLFAQ}`} target="_blank" rel="noreferrer">{this.strings.FAQLink}</a></li>
+                    <li><a href={`${this.strings.URLGCXchangeDirectory}`}  target="_blank" rel="noreferrer">{this.strings.LinkGCXchangeDirectory}</a></li>
+                    <li><a href={`${this.strings.AskMeAnythingLink}`} target="_blank" rel="noreferrer">{this.strings.AskMeAnythingLink}</a></li>
+                  </ul>
+                </section>
+              </StackItem>
+                
+              <StackItem>
                  <section aria-labelledby="resources-heading">
                     <h3 className={ styles.footerHeadLabel } id="resources-heading">{this.strings.ResourcesColumnTitle}</h3>
                     <ul className={ styles.footerList }>
@@ -85,12 +91,11 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                       <li><a href={`${this.strings.URLPedia}`} target="_blank" rel="noreferrer">GCpedia</a></li>
                       <li><a href="https://gccollab.ca/" target="_blank" rel="noreferrer">GCcollab</a></li>
                       <li><a href={`${this.strings.URLCampus}`} target="_blank" rel="noreferrer">{this.strings.LabelCampus}</a></li>
-                      
                     </ul>
                   </section>
-                </div>
+              </StackItem>
+          
                 {isButtonPropertiesAvailable && (
-                  <div className="ms-Grid-col ms-sm12 ms-lg2">
                   <section aria-labelledby="want-to-stay-in-the-loop">
                       <h3 className={ styles.footerHeadLabel } id="want-to-stay-in-the-loop">{wantToStayInTheLoopTitle}</h3>
                       <ul className={ styles.button }>
@@ -100,11 +105,14 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                         </a>
                         )}
                       </ul>
-                    </section>
-                  </div>
+                  </section>
                 )}
-              </div>
-              <div className="ms-Grid-row">
+
+            </Stack>
+          </div>
+
+        <div className={styles.row}>              
+          <div className="ms-Grid-row">
                 <div className="ms-Grid-col ms-lg6">
                   <Image {...fip1} alt={this.strings.GovImage}/>
                 </div>
@@ -113,8 +121,8 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 </div>
               </div>
             </div>
-          </div>
         </div>
+        
       </footer>
     );
   }

@@ -41,6 +41,11 @@
   //   @include ms-fontColor-white;
   // }
 
+  .footerColumn {
+    min-width: 200px;
+    max-width:300px;
+  }
+
   .fipImg {
     float: right;
   }

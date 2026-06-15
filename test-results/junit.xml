@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="2" failures="0" errors="0" time="209.375">
-  <testsuite name="FooterWebpart Component" errors="0" failures="0" skipped="0" timestamp="2026-06-03T18:19:10" time="208.066" tests="2">
-    <testcase classname="FooterWebpart Component should render FooterWebpart component" name="FooterWebpart Component should render FooterWebpart component" time="24.605">
+<testsuites name="jest tests" tests="2" failures="0" errors="0" time="184.794">
+  <testsuite name="FooterWebpart Component" errors="0" failures="0" skipped="0" timestamp="2026-06-10T19:11:28" time="131.325" tests="2">
+    <testcase classname="FooterWebpart Component should render FooterWebpart component" name="FooterWebpart Component should render FooterWebpart component" time="0.053">
     </testcase>
-    <testcase classname="FooterWebpart Component should render the &apos;Stay in the loop&apos; title" name="FooterWebpart Component should render the &apos;Stay in the loop&apos; title" time="0.015">
+    <testcase classname="FooterWebpart Component should render the &apos;Stay in the loop&apos; title" name="FooterWebpart Component should render the &apos;Stay in the loop&apos; title" time="0.009">
     </testcase>
   </testsuite>
 </testsuites>
