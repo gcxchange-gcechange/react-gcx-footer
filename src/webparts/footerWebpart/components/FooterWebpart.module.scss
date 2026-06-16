@@ -15,7 +15,7 @@
   .row {
     // @include ms-Grid-row;
     // @include ms-fontColor-white;\
-    background-color: "[theme: themePrimary, default: rgb(0, 120, 212)]";
+    background-color: "[theme: themePrimary, default: #a4262c]";
   }
 
   // .column {
@@ -43,7 +43,7 @@
 
   .footerColumn {
     min-width: 240px;
-    max-width:300px;
+    max-width: 300px;
   }
 
   .fipImg {

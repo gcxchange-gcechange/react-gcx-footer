@@ -2,7 +2,7 @@
 import * as React from 'react';
 import styles from './FooterWebpart.module.scss'
 import { IFooterWebpartProps } from './IFooterWebpartProps';
-import { Image, ImageFit, IImageProps, Stack, StackItem, IStackTokens} from "@fluentui/react";
+import { Image, ImageFit, IImageProps, Stack, StackItem} from "@fluentui/react";
 import { SelectLanguage } from './SelectLanguage';
  
 
@@ -40,17 +40,17 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
 
     const isButtonPropertiesAvailable = buttonText && buttonLink;
 
-    const customSpacingStackTokens: IStackTokens = {
-      childrenGap: '44'
-    };
+    // const customSpacingStackTokens: IStackTokens = {
+    //   childrenGap: '44'
+    // };
 
 
       return (
       <footer className={styles.footerWebpart} role="contentinfo">
         <div className={styles.container}>
           <div className={styles.row}>
-            <Stack horizontal wrap tokens={customSpacingStackTokens}>
-              <StackItem grow={false} className={styles.footerColumn}>
+            <Stack horizontal wrap   horizontalAlign="space-between">
+              <StackItem grow={false} className={styles.footerColumn} style={{marginRight:'22px'}}>
                 <section aria-labelledby="gcxchange-heading">
                   <h3 className={ styles.footerHeadLabel } id="gcxchange-heading">{this.strings.GCXchangeColumnTitle}</h3>
                   <ul className={ styles.footerList }>
@@ -62,7 +62,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 </section>
               </StackItem>
              
-              <StackItem grow={false} className={styles.footerColumn}>
+              <StackItem grow={false} className={styles.footerColumn} style={{marginRight:'22px', marginLeft:'22px'}}>
                 <section aria-labelledby="explore-heading">
                   <h3 className={ styles.footerHeadLabel } id="explore-heading">{this.strings.ExploreColumnTitle}</h3>
                   <ul className={ styles.footerList }>
@@ -72,7 +72,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 </section>
               </StackItem>
               
-              <StackItem grow={false} className={styles.footerColumn}>
+              <StackItem grow={false} className={styles.footerColumn} style={{marginRight:'22px', marginLeft:'22px'}}>
                 <section aria-labelledby="support-heading">
                   <h3 className={ styles.footerHeadLabel } id="support-heading">{this.strings.SupportColumnTitle}</h3>
                   <ul className={ styles.footerList }>
@@ -84,7 +84,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 </section>
               </StackItem>
                 
-              <StackItem grow={false} className={styles.footerColumn}>
+              <StackItem grow={false} className={styles.footerColumn} style={{marginLeft:'22px'}}>
                  <section aria-labelledby="resources-heading">
                     <h3 className={ styles.footerHeadLabel } id="resources-heading">{this.strings.ResourcesColumnTitle}</h3>
                     <ul className={ styles.footerList }>
@@ -113,17 +113,17 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
           </div>
 
         <div className={styles.row}>              
-          <div className="ms-Grid-row">
-                <div className="ms-Grid-col ms-lg6">
+          <Stack  horizontal horizontalAlign='space-between' wrap>
+                <StackItem>
                   <Image {...fip1} alt={this.strings.GovImage}/>
-                </div>
-                <div className="ms-Grid-col ms-lg6">
+                </StackItem>
+                <StackItem style={{marginRight:'62px'}}>
                   <Image {...fip2} alt={this.strings.CanadaImage} className={styles.fipImg} />
-                </div>
-              </div>
-            </div>
+                </StackItem>
+
+          </Stack>
         </div>
-        
+      </div>      
       </footer>
     );
   }
