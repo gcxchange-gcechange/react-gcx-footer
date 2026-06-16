@@ -12,7 +12,6 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import FooterWebpart from './components/FooterWebpart';
 import { IFooterWebpartProps } from './components/IFooterWebpartProps';
 import { SelectLanguage } from './components/SelectLanguage';
-import {IReadonlyTheme, ThemeProvider} from '@microsoft/sp-component-base';
 
 export interface IFooterWebpartWebPartProps {
   description: string;

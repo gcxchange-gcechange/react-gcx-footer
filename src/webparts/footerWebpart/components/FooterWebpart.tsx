@@ -41,7 +41,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
     const isButtonPropertiesAvailable = buttonText && buttonLink;
 
     const customSpacingStackTokens: IStackTokens = {
-      childrenGap: '88'
+      childrenGap: '44'
     };
 
 
@@ -84,7 +84,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 </section>
               </StackItem>
                 
-              <StackItem>
+              <StackItem grow={false} className={styles.footerColumn}>
                  <section aria-labelledby="resources-heading">
                     <h3 className={ styles.footerHeadLabel } id="resources-heading">{this.strings.ResourcesColumnTitle}</h3>
                     <ul className={ styles.footerList }>
