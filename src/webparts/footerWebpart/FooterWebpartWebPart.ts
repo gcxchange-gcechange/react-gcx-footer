@@ -12,6 +12,7 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import FooterWebpart from './components/FooterWebpart';
 import { IFooterWebpartProps } from './components/IFooterWebpartProps';
 import { SelectLanguage } from './components/SelectLanguage';
+import {IReadonlyTheme, ThemeProvider} from '@microsoft/sp-component-base';
 
 export interface IFooterWebpartWebPartProps {
   description: string;
@@ -27,7 +28,10 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
 
   protected async onInit(): Promise<void> {
     this.strings = SelectLanguage(this.properties.prefLang);
+  return super.onInit();
+
   }
+
   public updateWebPart= async () => {
     this.context.propertyPane.refresh();
     this.render();
@@ -43,7 +47,7 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
         wantToStayInTheLoopTitle: this.properties.wantToStayInTheLoopTitle,
         buttonText: this.properties.buttonText,
         buttonLink: this.properties.buttonLink,
-        updateWebPart:this.updateWebPart
+        updateWebPart:this.updateWebPart,
       }
     );
     ReactDom.render(element, this.domElement);

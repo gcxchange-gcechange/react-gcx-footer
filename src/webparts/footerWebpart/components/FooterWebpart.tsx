@@ -44,6 +44,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
       childrenGap: '88'
     };
 
+
       return (
       <footer className={styles.footerWebpart} role="contentinfo">
         <div className={styles.container}>

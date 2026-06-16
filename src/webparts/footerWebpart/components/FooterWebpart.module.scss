@@ -14,8 +14,8 @@
 
   .row {
     // @include ms-Grid-row;
-    // @include ms-fontColor-white;
-    background-color: rgb(0, 120, 212);
+    // @include ms-fontColor-white;\
+    background-color: "[theme: themePrimary, default rgb(0, 120, 212)]";
   }
 
   // .column {
