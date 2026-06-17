@@ -14,8 +14,8 @@
 
   .row {
     // @include ms-Grid-row;
-    // @include ms-fontColor-white;
-    background-color: rgb(0, 120, 212);
+    // @include ms-fontColor-white;\
+    background-color: "[theme: themePrimary, default: #a4262c]";
   }
 
   // .column {
@@ -40,6 +40,11 @@
   //   @include ms-font-l;
   //   @include ms-fontColor-white;
   // }
+
+  .footerColumn {
+    min-width: 245.28px;
+    max-width: 300px;
+  }
 
   .fipImg {
     float: right;
