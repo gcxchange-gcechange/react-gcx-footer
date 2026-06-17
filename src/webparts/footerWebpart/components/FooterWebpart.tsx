@@ -117,7 +117,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 <StackItem>
                   <Image {...fip1} alt={this.strings.GovImage}/>
                 </StackItem>
-                <StackItem style={{marginRight:'62px'}}>
+                <StackItem style={{marginRight:'66px'}}>
                   <Image {...fip2} alt={this.strings.CanadaImage} className={styles.fipImg} />
                 </StackItem>
 
