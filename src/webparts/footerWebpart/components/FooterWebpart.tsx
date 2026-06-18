@@ -80,7 +80,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                     <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLSupport}`} target="_blank" rel="noreferrer">{this.strings.LinkSupport}</a></li>
                     <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLFAQ}`} target="_blank" rel="noreferrer">{this.strings.FAQLink}</a></li>
                     <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLGCXchangeDirectory}`}  target="_blank" rel="noreferrer">{this.strings.LinkGCXchangeDirectory}</a></li>
-                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.AskMeAnythingLink}`} target="_blank" rel="noreferrer">{this.strings.AskMeAnythingLink}</a></li>
+                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLAskMeAnything}`} target="_blank" rel="noreferrer">{this.strings.AskMeAnythingLink}</a></li>
                   </ul>
                 </section>
               </StackItem>

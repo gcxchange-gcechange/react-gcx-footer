@@ -36,7 +36,7 @@ define([], function() {
 
     //Fourth Column
     "ResourcesColumnTitle": "RESOURCES",
-    "URLIntranet": "https://intranet.canada.ca/index-eng.asp",
+    "URLIntranet": "https://gcxgce.sharepoint.com/sites/GCIntranet/SitePages/Home.aspx",
     "URLPedia": "https://www.gcpedia.gc.ca/wiki/Main_Page",
     "URLCampus": "https://www.csps-efpc.gc.ca/GCcampus/index-eng.aspx",
     "LabelCampus":"Learning platform",
