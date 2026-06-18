@@ -50,7 +50,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
       <footer className={styles.footerWebpart} role="contentinfo">
         <div className={styles.container}>
           {/* <div > */}
-            <Stack horizontal wrap  horizontalAlign="space-between" style={{backgroundColor: semanticColors?.bodyBackground, color: `${semanticColors?.bodyText}!important` }}>
+            <Stack horizontal wrap  horizontalAlign="space-between" style={{backgroundColor: semanticColors?.bodyBackground, color: `${semanticColors?.bodyText}!important`, textAlign: 'start' }}>
               <StackItem grow={false} className={styles.footerColumn} style={{marginRight:'22px'}}>
                 <section aria-labelledby="gcxchange-heading">
                   <h3 className={ styles.footerHeadLabel } id="gcxchange-heading">{this.strings.GCXchangeColumnTitle}</h3>
