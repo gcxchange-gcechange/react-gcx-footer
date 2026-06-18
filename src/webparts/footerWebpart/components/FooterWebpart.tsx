@@ -4,7 +4,6 @@ import styles from './FooterWebpart.module.scss'
 import { IFooterWebpartProps } from './IFooterWebpartProps';
 import { Image, ImageFit, IImageProps, Stack, StackItem} from "@fluentui/react";
 import { SelectLanguage } from './SelectLanguage';
- 
 
 
 export default class FooterWebpart extends React.Component<IFooterWebpartProps> {
@@ -44,20 +43,22 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
     //   childrenGap: '44'
     // };
 
+    const semanticColors = this.props.themeVariant?.semanticColors;
+  
 
       return (
       <footer className={styles.footerWebpart} role="contentinfo">
         <div className={styles.container}>
-          <div className={styles.row}>
+          <div style={{backgroundColor: semanticColors?.bodyBackground, color: `${semanticColors?.bodyText}!important` }}>
             <Stack horizontal wrap   horizontalAlign="space-between">
               <StackItem grow={false} className={styles.footerColumn} style={{marginRight:'22px'}}>
                 <section aria-labelledby="gcxchange-heading">
                   <h3 className={ styles.footerHeadLabel } id="gcxchange-heading">{this.strings.GCXchangeColumnTitle}</h3>
-                  <ul className={ styles.footerList }>
-                    <li><a href={`${this.strings.URLAboutUs}`} target="_blank" rel="noreferrer">{this.strings.LinkAboutUs}</a></li>
-                    <li><a href={`${this.strings.URLTerms}`}>{this.strings.LinkTerms}</a></li>
-                    <li><a href={`${this.strings.URLPrivacy}`}>{this.strings.LinkPrivacy}</a></li>
-                    <li><a href={`${this.strings.URLAccessibility}`}>{this.strings.LinkAccessibility}</a></li>
+                  <ul className={styles.footerList }>
+                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLAboutUs}`} target="_blank" rel="noreferrer">{this.strings.LinkAboutUs}</a></li>
+                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLTerms}`}>{this.strings.LinkTerms}</a></li>
+                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLPrivacy}`}>{this.strings.LinkPrivacy}</a></li>
+                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLAccessibility}`}>{this.strings.LinkAccessibility}</a></li>
                   </ul>
                 </section>
               </StackItem>
@@ -66,8 +67,8 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 <section aria-labelledby="explore-heading">
                   <h3 className={ styles.footerHeadLabel } id="explore-heading">{this.strings.ExploreColumnTitle}</h3>
                   <ul className={ styles.footerList }>
-                    <li><a href={`${this.strings.URLCommunities}`} target="_blank" rel="noreferrer">{this.strings.LinkCommunities}</a></li>
-                    <li><a href={`${this.strings.URLCareerMarketplace}`} target="_blank" rel="noreferrer">{this.strings.LinkCareerMarketplace}</a></li>
+                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLCommunities}`} target="_blank" rel="noreferrer">{this.strings.LinkCommunities}</a></li>
+                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLCareerMarketplace}`} target="_blank" rel="noreferrer">{this.strings.LinkCareerMarketplace}</a></li>
                   </ul>
                 </section>
               </StackItem>
@@ -76,10 +77,10 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 <section aria-labelledby="support-heading">
                   <h3 className={ styles.footerHeadLabel } id="support-heading">{this.strings.SupportColumnTitle}</h3>
                   <ul className={ styles.footerList }>
-                    <li><a href={`${this.strings.URLSupport}`} target="_blank" rel="noreferrer">{this.strings.LinkSupport}</a></li>
-                    <li><a href={`${this.strings.URLFAQ}`} target="_blank" rel="noreferrer">{this.strings.FAQLink}</a></li>
-                    <li><a href={`${this.strings.URLGCXchangeDirectory}`}  target="_blank" rel="noreferrer">{this.strings.LinkGCXchangeDirectory}</a></li>
-                    <li><a href={`${this.strings.AskMeAnythingLink}`} target="_blank" rel="noreferrer">{this.strings.AskMeAnythingLink}</a></li>
+                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLSupport}`} target="_blank" rel="noreferrer">{this.strings.LinkSupport}</a></li>
+                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLFAQ}`} target="_blank" rel="noreferrer">{this.strings.FAQLink}</a></li>
+                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLGCXchangeDirectory}`}  target="_blank" rel="noreferrer">{this.strings.LinkGCXchangeDirectory}</a></li>
+                    <li><a style={{color:semanticColors?.listText }} href={`${this.strings.AskMeAnythingLink}`} target="_blank" rel="noreferrer">{this.strings.AskMeAnythingLink}</a></li>
                   </ul>
                 </section>
               </StackItem>
@@ -88,10 +89,10 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                  <section aria-labelledby="resources-heading">
                     <h3 className={ styles.footerHeadLabel } id="resources-heading">{this.strings.ResourcesColumnTitle}</h3>
                     <ul className={ styles.footerList }>
-                      <li><a href={`${this.strings.URLIntranet}`} target="_blank" rel="noreferrer">GCintranet</a></li>
-                      <li><a href={`${this.strings.URLPedia}`} target="_blank" rel="noreferrer">GCpedia</a></li>
-                      <li><a href="https://gccollab.ca/" target="_blank" rel="noreferrer">GCcollab</a></li>
-                      <li><a href={`${this.strings.URLCampus}`} target="_blank" rel="noreferrer">{this.strings.LabelCampus}</a></li>
+                      <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLIntranet}`} target="_blank" rel="noreferrer">GCintranet</a></li>
+                      <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLPedia}`} target="_blank" rel="noreferrer">GCpedia</a></li>
+                      <li><a style={{color:semanticColors?.listText }} href="https://gccollab.ca/" target="_blank" rel="noreferrer">GCcollab</a></li>
+                      <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLCampus}`} target="_blank" rel="noreferrer">{this.strings.LabelCampus}</a></li>
                     </ul>
                   </section>
               </StackItem>
@@ -112,7 +113,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
             </Stack>
           </div>
 
-        <div className={styles.row}>              
+        <div style={{backgroundColor: semanticColors?.bodyBackground, color: semanticColors?.bodyText }}>              
           <Stack  horizontal horizontalAlign='space-between' wrap>
                 <StackItem>
                   <Image {...fip1} alt={this.strings.GovImage}/>

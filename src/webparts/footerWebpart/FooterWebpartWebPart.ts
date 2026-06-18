@@ -12,6 +12,7 @@ import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import FooterWebpart from './components/FooterWebpart';
 import { IFooterWebpartProps } from './components/IFooterWebpartProps';
 import { SelectLanguage } from './components/SelectLanguage';
+import {ThemeProvider, ThemeChangedEventArgs, IReadonlyTheme} from '@microsoft/sp-component-base';
 
 export interface IFooterWebpartWebPartProps {
   description: string;
@@ -24,12 +25,34 @@ export interface IFooterWebpartWebPartProps {
 export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterWebpartWebPartProps> {
 
   private strings!: IFooterWebpartWebPartStrings;
+  private _themeProvider: ThemeProvider | undefined;
+  private _themeVariant: IReadonlyTheme | undefined;
 
   protected async onInit(): Promise<void> {
     this.strings = SelectLanguage(this.properties.prefLang);
-  return super.onInit();
+    return super.onInit().then (_ => {
+      this._themeProvider = this.context.serviceScope.consume(ThemeProvider.serviceKey);
+
+      this._themeVariant = this._themeProvider.tryGetTheme();
+
+      this._themeProvider.themeChangedEvent.add(this, this._handleThemeChangedEvent);
+    });
+  
 
   }
+
+  private _handleThemeChangedEvent(args: ThemeChangedEventArgs): void {
+    this._themeVariant = args.theme;
+    this.render();
+  }
+
+  protected onThemeChanged(currentTheme: IReadonlyTheme | undefined): void {
+  super.onThemeChanged(currentTheme);
+
+  if (!currentTheme) {
+    return;
+  }
+}
 
   public updateWebPart= async () => {
     this.context.propertyPane.refresh();
@@ -47,6 +70,7 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
         buttonText: this.properties.buttonText,
         buttonLink: this.properties.buttonLink,
         updateWebPart:this.updateWebPart,
+        themeVariant: this._themeVariant,
       }
     );
     ReactDom.render(element, this.domElement);
