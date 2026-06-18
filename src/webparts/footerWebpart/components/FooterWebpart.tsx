@@ -49,8 +49,8 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
       return (
       <footer className={styles.footerWebpart} role="contentinfo">
         <div className={styles.container}>
-          <div style={{backgroundColor: semanticColors?.bodyBackground, color: `${semanticColors?.bodyText}!important` }}>
-            <Stack horizontal wrap   horizontalAlign="space-between">
+          {/* <div > */}
+            <Stack horizontal wrap  horizontalAlign="space-between" style={{backgroundColor: semanticColors?.bodyBackground, color: `${semanticColors?.bodyText}!important` }}>
               <StackItem grow={false} className={styles.footerColumn} style={{marginRight:'22px'}}>
                 <section aria-labelledby="gcxchange-heading">
                   <h3 className={ styles.footerHeadLabel } id="gcxchange-heading">{this.strings.GCXchangeColumnTitle}</h3>
@@ -111,10 +111,10 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 )}
 
             </Stack>
-          </div>
+          {/* </div> */}
 
-        <div style={{backgroundColor: semanticColors?.bodyBackground, color: semanticColors?.bodyText }}>              
-          <Stack  horizontal horizontalAlign='space-between' wrap>
+        {/* <div >               */}
+          <Stack  horizontal horizontalAlign='space-between' wrap style={{backgroundColor: semanticColors?.bodyBackground, color: semanticColors?.bodyText }}>
                 <StackItem>
                   <Image {...fip1} alt={this.strings.GovImage}/>
                 </StackItem>
@@ -123,7 +123,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 </StackItem>
 
           </Stack>
-        </div>
+        {/* </div> */}
       </div>      
       </footer>
     );
