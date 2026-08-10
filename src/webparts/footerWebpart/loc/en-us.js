@@ -31,7 +31,7 @@ define([], function() {
     "URLGCXchangeDirectory": "https://gcxgce.sharepoint.com/SitePages/GCXchangeDirectory.aspx",
     "FAQLink": "Frequently asked questions",
     "URLFAQ": "https://gcxgce.sharepoint.com/sites/Support/SitePages/FAQ.aspx",
-    "AskMeAnythingLink": "Ask me anything",
+    "AskMeAnythingLink": "Ask Me Anything",
     "URLAskMeAnything": "https://gcxgce.sharepoint.com/sites/Support/_layouts/15/Events.aspx?Page=%2Fsites%2FSupport%2FSitePages%2FHome.aspx&InstanceId=44a77339-43da-4321-93fc-38de644bdf50&AudienceTarget=false",
 
     //Fourth Column

@@ -8,7 +8,7 @@ define([], function() {
     //First Column
     "GCXchangeColumnTitle": "GCÉCHANGE",
     "LinkAboutUs": "À propos de nous",
-    "LinkTerms": "Conditions d' utilisation",
+    "LinkTerms": "Conditions d'utilisation",
     "LinkPrivacy": "Politique de confidentialité",
     "URLAboutUs": "https://gcxgce.sharepoint.com/SitePages/fr/About-us.aspx",
     "URLTerms": "https://gcxgce.sharepoint.com/SitePages/fr/Terms-and-Conditions.aspx",
