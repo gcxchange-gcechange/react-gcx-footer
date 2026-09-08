@@ -28,7 +28,7 @@ define([], function() {
     "LinkSupport": "Centre de soutien",
     "URLSupport": "https://gcxgce.sharepoint.com/sites/Support/SitePages/fr/Home.aspx",
     "FAQLink": "Foires aux questions",
-    "URLFAQ": "https://gcxgce.sharepoint.com/SitePages/fr/FAQ.aspx",
+    "URLFAQ": "https://gcxgce.sharepoint.com/sites/Support/SitePages/fr/FAQ.aspx",
     "AskMeAnythingLink": "Demandez-moi n’importe quoi",
     "URLAskMeAnything": "https://gcxgce.sharepoint.com/sites/Support/_layouts/15/Events.aspx?Page=%2Fsites%2FSupport%2FSitePages%2Ffr%2FHome.aspx&InstanceId=a9ef6f15-e041-412e-9013-b891ab80e25f&AudienceTarget=false",
     "LinkGCXchangeDirectory":"Annuaire GCÉchange",
