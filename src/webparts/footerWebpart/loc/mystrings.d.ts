@@ -19,6 +19,7 @@ declare interface IFooterWebpartWebPartStrings {
   URLCampus: string;
   LabelCampus:string;
   URLPedia: string;
+  URLGCWiki: string;
   LinkGCXchangeDirectory:string;
   URLGCXchangeDirectory:string;
   GovImage:string;

@@ -38,6 +38,7 @@ define([], function() {
     "ResourcesColumnTitle": "RESOURCES",
     "URLIntranet": "https://gcxgce.sharepoint.com/sites/GCIntranet/SitePages/Home.aspx",
     "URLPedia": "https://www.gcpedia.gc.ca/wiki/Main_Page",
+    "URLGCWiki": "https://wiki.gccollab.ca/Main_Page?uselang=en",
     "URLCampus": "https://www.csps-efpc.gc.ca/GCcampus/index-eng.aspx",
     "LabelCampus":"Learning platform",
     "GovImage":"Government of Canada",
