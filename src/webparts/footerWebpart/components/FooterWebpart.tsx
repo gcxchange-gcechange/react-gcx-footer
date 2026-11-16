@@ -85,7 +85,7 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 </section>
               </StackItem>
                 
-              <StackItem grow={false} className={styles.footerColumn} style={{marginLeft:'22px'}}>
+              <StackItem grow={false} className={`${styles.footerColumn} ${styles['mgt-lft']}`} >
                  <section aria-labelledby="resources-heading">
                     <h3 className={ styles.footerHeadLabel } id="resources-heading">{this.strings.ResourcesColumnTitle}</h3>
                     <ul className={ styles.footerList }>

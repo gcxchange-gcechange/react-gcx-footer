@@ -36,10 +36,12 @@ export default class FooterWebpartWebPart extends BaseClientSideWebPart<IFooterW
       this._themeVariant = this._themeProvider.tryGetTheme();
 
       this._themeProvider.themeChangedEvent.add(this, this._handleThemeChangedEvent);
+
     });
   
 
   }
+
 
   private _handleThemeChangedEvent(args: ThemeChangedEventArgs): void {
     this._themeVariant = args.theme;

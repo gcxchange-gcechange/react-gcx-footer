@@ -40,11 +40,21 @@
   //   @include ms-font-l;
   //   @include ms-fontColor-white;
   // }
+  .mgt-lft {
+    margin-left: 22px;
+  }
 
   .footerColumn {
     min-width: 245.28px;
     max-width: 300px;
   }
+
+  @media screen and (max-width: 1375px) {
+  .mgt-lft {
+    margin-left: 0px!important;
+  }
+}
+
 
   .fipImg {
     float: right;
@@ -130,3 +140,5 @@
     max-width: 100% !important;
   }
 }
+
+
