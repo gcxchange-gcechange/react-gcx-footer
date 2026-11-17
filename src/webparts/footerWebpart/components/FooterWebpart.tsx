@@ -50,8 +50,10 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
       <footer className={styles.footerWebpart} role="contentinfo">
         <div className={styles.container}>
           {/* <div > */}
-            <Stack horizontal wrap  horizontalAlign="space-between" style={{backgroundColor: semanticColors?.bodyBackground, color: `${semanticColors?.bodyText}!important`, textAlign: 'start' }}>
-              <StackItem grow={false} className={styles.footerColumn} style={{marginRight:'22px'}}>
+            <Stack horizontal wrap  horizontalAlign="space-between"  className={styles.footerContainer} style={{backgroundColor: semanticColors?.bodyBackground, color: `${semanticColors?.bodyText}!important`, textAlign: 'start' }}>
+              
+               {/* <StackItem grow={false} className={styles.footerColumn} style={{marginRight:'22px'}}> */}
+                 <StackItem grow={false} className={styles.footerColumn}  >
                 <section aria-labelledby="gcxchange-heading">
                   <h3 className={ styles.footerHeadLabel } id="gcxchange-heading">{this.strings.GCXchangeColumnTitle}</h3>
                   <ul className={styles.footerList }>
@@ -63,7 +65,8 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 </section>
               </StackItem>
              
-              <StackItem grow={false} className={styles.footerColumn} style={{marginRight:'22px', marginLeft:'22px'}}>
+              {/* <StackItem grow={false} className={`${styles.footerColumn}  ${styles['mgt-lft-secondColumn']}  ${styles['mgt-rgt']}`}> */}
+                <StackItem grow={false} className={styles.footerColumn} > 
                 <section aria-labelledby="explore-heading">
                   <h3 className={ styles.footerHeadLabel } id="explore-heading">{this.strings.ExploreColumnTitle}</h3>
                   <ul className={ styles.footerList }>
@@ -73,7 +76,8 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 </section>
               </StackItem>
               
-              <StackItem grow={false} className={styles.footerColumn} style={{marginRight:'22px', marginLeft:'22px'}}>
+              <StackItem grow={false} className={styles.footerColumn} > 
+              {/* <StackItem grow={false} className={`${styles.footerColumn}  ${styles['mgt-lft-thirdColumn']}  ${styles['mgt-rgt']}`}> */}
                 <section aria-labelledby="support-heading">
                   <h3 className={ styles.footerHeadLabel } id="support-heading">{this.strings.SupportColumnTitle}</h3>
                   <ul className={ styles.footerList }>
@@ -85,7 +89,8 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                 </section>
               </StackItem>
                 
-              <StackItem grow={false} className={`${styles.footerColumn} ${styles['mgt-lft']}`} >
+                <StackItem grow={false} className={styles.footerColumn} > 
+              {/* <StackItem grow={false} className={`${styles.footerColumn} ${styles['mgt-lft-lastColumn']}`} > */}
                  <section aria-labelledby="resources-heading">
                     <h3 className={ styles.footerHeadLabel } id="resources-heading">{this.strings.ResourcesColumnTitle}</h3>
                     <ul className={ styles.footerList }>
