@@ -40,8 +40,7 @@ define([], function() {
     "URLCampus": "https://www.csps-efpc.gc.ca/gccampus/index-fra.aspx",
     "LabelCampus":"Plateforme d'apprentissage",
     "URLPedia": "https://www.gcpedia.gc.ca/wiki/Main_Page?setlang=fr&uselang=fr",
-   
-  
+    "URLGCWiki": "https://wiki.gccollab.ca/Main_Page?uselang=fr",
     "GovImage":"Gouvernement du Canada",
     "CanadaImage":"Symbole du gouvernement du Canada",
     // "ProtectedTermsURL": "https://gcxgce.sharepoint.com/SitePages/fr/Terms-and-Conditions-pro-b.aspx",

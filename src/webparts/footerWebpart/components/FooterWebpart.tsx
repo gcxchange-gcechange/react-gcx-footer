@@ -90,8 +90,9 @@ export default class FooterWebpart extends React.Component<IFooterWebpartProps> 
                     <h3 className={ styles.footerHeadLabel } id="resources-heading">{this.strings.ResourcesColumnTitle}</h3>
                     <ul className={ styles.footerList }>
                       <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLIntranet}`} target="_blank" rel="noreferrer">GCintranet</a></li>
-                      <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLPedia}`} target="_blank" rel="noreferrer">GCpedia</a></li>
-                      <li><a style={{color:semanticColors?.listText }} href="https://gccollab.ca/" target="_blank" rel="noreferrer">GCcollab</a></li>
+                      <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLPedia}`} target="_blank" rel="noreferrer">GCPedia</a></li>
+                      <li><a style={{color:semanticColors?.listText }} href="https://gccollab.ca/" target="_blank" rel="noreferrer">GCCollab</a></li>
+                      <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLGCWiki}`} target="_blank" rel="noreferrer">GCWiki</a></li>
                       <li><a style={{color:semanticColors?.listText }} href={`${this.strings.URLCampus}`} target="_blank" rel="noreferrer">{this.strings.LabelCampus}</a></li>
                     </ul>
                   </section>
